@@ -26,12 +26,12 @@ services:
       - '36379:6379'
     volumes:
       - redis-data:/var/lib/redis
-  potepanec:
+  portfolio:
     build:
       context: .
       dockerfile: Dockerfile.dev
     ports:
-      - '3000:3000'
+      - '3001:3001'
     environment:
       MYSQL_USERNAME: root
       MYSQL_PASSWORD: password
@@ -43,15 +43,15 @@ services:
     networks:
       - default
     volumes:
-      - .:/potepanec
+      - .:/portfolio
       # https://qiita.com/shotat/items/57d049793605ffc20135
-      - /potepanec/log
-      - /potepanec/tmp
-      - /potepanec/vendor/bundle
-      # - vendor_bundle_2_5_1:/potepanec/vendor/bundle
-      - vendor_assets_2_7:/potepanec/vendor/assets
-      - node_modules:/potepanec/node_modules
-      - public_spree_2_7:/potepanec/public/spree
+      - /portfolio/log
+      - /portfolio/tmp
+      - /portfolio/vendor/bundle
+      # - vendor_bundle_2_5_1:/portfolio/vendor/bundle
+      - vendor_assets_2_7:/portfolio/vendor/assets
+      - node_modules:/portfolio/node_modules
+      - public_spree_2_7:/portfolio/public/spree
     tty: true
     stdin_open: true
     command: bundle exec rails server -b 0.0.0.0
