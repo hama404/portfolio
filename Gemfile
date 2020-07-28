@@ -66,7 +66,7 @@ gem 'bootstrap'
 gem 'jquery-rails'
 gem 'font-awesome-sass', '~> 5.4.1'
 
-gem "aws-sdk", "~> 2.3"
+gem 'aws-sdk', '~> 2.3'
 group :test do
   gem 'capybara'
   gem 'webdrivers'
