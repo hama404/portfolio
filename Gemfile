@@ -68,6 +68,7 @@ gem 'jquery-rails'
 gem 'jquery-ui-rails'
 
 gem 'devise'
+gem 'jp_prefecture'
 gem 'aws-sdk', '~> 2.3'
 group :test do
   gem 'capybara'

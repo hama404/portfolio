@@ -5,24 +5,18 @@
     <%= render 'layouts/head_tag' %>
   </head>
   <body>
-    <%= render 'layouts/header' %>
     <div class="main-wrapper">
+      <%= render 'layouts/header' %>
       <% if notice %>
         <p class="notice"><%= notice %></p>
       <% elsif alert %>
         <p class="alert"><%= alert %></p>
       <% end %>
-      <section class="mainContent clearfix">
-        <div class="container">
-          <div class="row">
-            <%= yield %>
-          </div>
-        </div>
-      </section>
+      <%= yield %>
       <%= render 'layouts/footer' %>
-      <%= render 'layouts/modal/login_modal' %>
-      <%= render 'layouts/modal/signup_modal' %>
-      <%#= render 'layouts/modal/quick_view_modal' %>
     </div>
+    <%= render 'layouts/modal/login_modal' %>
+    <%= render 'layouts/modal/signup_modal' %>
+    <%#= render 'layouts/modal/quick_view_modal' %>
   </body>
 </html>

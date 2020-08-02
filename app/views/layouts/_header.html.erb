@@ -1,61 +1,42 @@
 <!-- HEADER -->
 <div class="header clearfix">
-  <!-- TOPBAR -->
-  <div class="topBar">
+  <nav class="navbar navbar-fixed-top navbar-default">
     <div class="container">
       <div class="row">
-        <div class="col-md-6 hidden-sm hidden-xs">
-          <ul class="list-inline">
-            <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-            <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-          </ul>
+        <div class="col-6">
+          <%= link_to 'portfolio', root_path, class: "navbar-brand" %>
         </div>
-        <div class="col-md-6 col-xs-12">
+        <div class="col-6">
           <ul class="list-inline pull-right">
-            <li><!-- <span><a data-toggle="modal" href='.login-modal'>ログイン</a><small>or</small><a data-toggle="modal" href='#signup'>新規登録</a></span> --></li>
             <li class="dropdown searchBox">
               <a href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-search"></i></a>
               <ul class="dropdown-menu dropdown-menu-right">
                 <form  id="form01" action="product-grid-left-sidebar.html" method="post">
-                <li>
-                  <span class="input-group">
-                    <input type="text" name="searchWord" class="form-control" placeholder="Search…" aria-describedby="basic-addon2">
-                    <span onclick="FormSubmit();" class="input-group-addon addPointer" id="basic-addon2">検索</span>
-                  </span>
-                </li>
+                  <li>
+                    <span class="input-group">
+                      <input type="text" name="searchWord" class="form-control" placeholder="Search…" aria-describedby="basic-addon2">
+                      <span onclick="FormSubmit();" class="input-group-addon addPointer" id="basic-addon2">検索</span>
+                    </span>
+                  </li>
                 </form>
               </ul>
             </li>
             <li class="dropdown">
-              <a href="cart-page.html" class="dropdown-toggle" data-toggle="dropdown disabled"><i class="fa fa-shopping-cart"></i></a>
+              <a href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-bars"></i></a>
+              <ul class="dropdown-menu dropdown-menu-right">
+                <% if user_signed_in? %>
+                  <li>Logged in as <strong><%= current_user.email %></strong>.</li>
+                  <li><%= link_to 'Edit', edit_user_registration_path(current_user) %></li>
+                  <li><%= link_to 'Logout', destroy_user_session_path, method: :delete %></li>
+                <% else %>
+                  <li><%= link_to 'Signup', new_user_registration_path, class: "dropdown-item" %></li>
+                  <li><%= link_to 'Login', new_user_session_path, class: "dropdown-item" %></li>
+                <% end %>
+              </ul>
             </li>
           </ul>
         </div>
       </div>
-    </div>
-  </div>
-  <!-- NAVBAR -->
-  <nav class="navbar navbar-main navbar-default" role="navigation">
-    <div class="container">
-      <!-- Brand and toggle get grouped for better mobile display -->
-      <div class="navbar-header">
-        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
-          <span class="sr-only">Toggle navigation</span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
-        <%= link_to 'portfolio', root_path, class: "navbar-brand" %>
-      </div>
-      <!-- Collect the nav links, forms, and other content for toggling -->
-      <div class="collapse navbar-collapse navbar-ex1-collapse">
-        <ul class="nav navbar-nav navbar-right">
-          <li><%= link_to 'Home', root_path %></li>
-          <li class="dropdown megaDropMenu active">
-            <a href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="300" data-close-others="true" aria-expanded="false">Shop</a>
-          </li>
-        </ul>
-      </div><!-- /.navbar-collapse -->
     </div>
   </nav>
 </div>
