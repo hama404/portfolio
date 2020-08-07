@@ -1,0 +1,49 @@
+<div class="col-md-9 col-sm-8 col-xs-12">
+  <div class="row filterArea">
+    <div class="col-xs-6">
+      <select name="guiest_id1" id="guiest_id1" class="select-drop">
+        <option value="0">Default sorting</option>
+        <option value="1">Sort by popularity</option>
+        <option value="2">Sort by rating</option>
+        <option value="3">Sort by newness</option>
+        <option value="3">Sort by price</option>
+      </select>
+    </div>
+    <div class="col-xs-6">
+      <div class="btn-group pull-right" role="group">
+        <button type="button" class="btn btn-default" onclick="window.location.href='product_grid_left_sidebar.html'"><i class="fa fa-th" aria-hidden="true"></i><span>Grid</span></button>
+        <button type="button" class="btn btn-default active" onclick="window.location.href='product_list_left_sidebar.html'"><i class="fa fa-th-list" aria-hidden="true"></i><span>List</span></button>
+      </div>
+    </div>
+  </div>
+  <div class="row productListSingle">
+    <% @parlors.each do |parlor| %>
+      <div class="col-xs-12">
+        <div class="media">
+          <div class="media-left">
+            <%= image_tag(parlor.assets.first.photo.url, class: "media-object", alt: "Image") %>
+            <span class="maskingImage"><a data-toggle="modal" href=".quick-view" class="btn viewBtn">Quick View</a></span>
+          </div>
+          <div class="media-body">
+            <h4 class="media-heading"><a href="single-product.html">NAME</a></h4>
+            <p>123-4556 adress</p>
+            <h3>crowded situation</h3>
+          </div>
+        </div>
+      </div>
+    <% end %>
+    <div class="col-xs-12">
+      <div class="media">
+        <div class="media-left">
+          <%= image_tag("products/products-02.jpg", :class => "media-object", :alt => "Image") %>
+          <span class="maskingImage"><a data-toggle="modal" href=".quick-view" class="btn viewBtn">Quick View</a></span>
+        </div>
+        <div class="media-body">
+          <h4 class="media-heading"><a href="single-product.html">Dip Dyed Sweater</a></h4>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+          <h3>$249</h3>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

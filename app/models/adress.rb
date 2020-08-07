@@ -6,7 +6,7 @@ class Adress < ApplicationRecord
   jp_prefecture :prefecture_code, method_name: :pref
 
   def country
-    c = ISO3166::Country.find_by_country_code(country_code)
-    c.gem
+    c = ISO3166::Country.find_country_by_country_code(country_code)
+    c.name
   end
 end

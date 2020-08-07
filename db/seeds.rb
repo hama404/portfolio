@@ -26,7 +26,8 @@ adress = parlor.adresses.new(
   address1: '銀座6-5-15',
   address2: '銀座能楽堂飯島ビル9F',
   city: '中央区',
-  prefecture_code: '',
+  state: '東京都',
+  prefecture_code: '13',
   zipcode: '1040061',
   telephone: '0335738440')
 adress.parlor.stores += 1
