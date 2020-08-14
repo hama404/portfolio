@@ -19,5 +19,7 @@
 //= require plugins/owl-carousel/owl.carousel
 //= require plugins/selectbox/jquery.selectbox-0.1.3.min
 //= require plugins/countdown/jquery.syotimer
+//= require plugins/chart/Chart.min
 //= require js/custom
 //= require_self
+//= require_tree .

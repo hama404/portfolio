@@ -66,6 +66,7 @@ gem 'bootstrap'
 gem 'font-awesome-rails'
 gem 'jquery-rails'
 gem 'jquery-ui-rails'
+# gem 'chart-js-rails'
 
 gem 'devise'
 gem 'jp_prefecture'
