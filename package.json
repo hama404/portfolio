@@ -1,7 +1,5 @@
 {
   "name": "portfolio",
   "private": true,
-  "dependencies": {
-    "chart.js": "*"
-  }
+  "dependencies": {}
 }
