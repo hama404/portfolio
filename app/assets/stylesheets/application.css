@@ -19,4 +19,5 @@
  *= require css/colors/default
  *= require font-awesome
  *= require_self
+ *= require_tree .
  */

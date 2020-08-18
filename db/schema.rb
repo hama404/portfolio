@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_03_194947) do
+ActiveRecord::Schema.define(version: 2020_08_17_070945) do
 
   create_table "adresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "parlor_id"
@@ -22,7 +22,7 @@ ActiveRecord::Schema.define(version: 2020_08_03_194947) do
     t.integer "prefecture_code"
     t.integer "country_code", default: 81
     t.integer "zipcode"
-    t.integer "telephone"
+    t.string "telephone"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["parlor_id"], name: "index_adresses_on_parlor_id"
@@ -40,10 +40,32 @@ ActiveRecord::Schema.define(version: 2020_08_03_194947) do
     t.index ["imageable_type", "imageable_id"], name: "index_assets_on_imageable_type_and_imageable_id"
   end
 
+  create_table "business_hours", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "parlor_id"
+    t.string "day"
+    t.time "open"
+    t.time "close"
+    t.time "last_order"
+    t.integer "open_crowded"
+    t.integer "close_crowded"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["parlor_id"], name: "index_business_hours_on_parlor_id"
+  end
+
   create_table "categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "crowdeds", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "business_hour_id"
+    t.time "hourly_time"
+    t.integer "percent"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["business_hour_id"], name: "index_crowdeds_on_business_hour_id"
   end
 
   create_table "parlors", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -69,4 +91,6 @@ ActiveRecord::Schema.define(version: 2020_08_03_194947) do
   end
 
   add_foreign_key "adresses", "parlors"
+  add_foreign_key "business_hours", "parlors"
+  add_foreign_key "crowdeds", "business_hours"
 end

@@ -1,5 +1,9 @@
 class ParlorsController < ApplicationController
   def index
+    
+    gon.labels = []
+    gon.data = []
+
     if params[:q]
       @parlors = Parlor.where
     else

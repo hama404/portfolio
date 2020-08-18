@@ -5,7 +5,7 @@ class CreateParlors < ActiveRecord::Migration[5.2]
       t.references :category
       ## infomation
       t.string :url
-      t.integer :stores, default: "0"
+      t.integer :stores, default: 0
 
       ## assets => carrierwave
       ## adress => jp_pref

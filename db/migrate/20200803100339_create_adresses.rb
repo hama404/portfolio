@@ -8,9 +8,9 @@ class CreateAdresses < ActiveRecord::Migration[5.2]
       t.string :city
       t.string :state
       t.integer :prefecture_code, default: nil
-      t.integer :country_code, default: "81"
+      t.integer :country_code, default: 81
       t.integer :zipcode
-      t.integer :telephone
+      t.string :telephone
 
       t.timestamps
     end
