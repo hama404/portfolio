@@ -1,4 +1,4 @@
-class CreateCrowdeds < ActiveRecord::Migration[5.2]
+class CreateCrowdeds < ActiveRecord::Migration[5.0]
   def change
     create_table :crowdeds do |t|
       t.integer :business_hour_id, foreign_key: true

@@ -12,7 +12,7 @@
 
 ActiveRecord::Schema.define(version: 2020_08_17_070945) do
 
-  create_table "adresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "adresses", id: :integer, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "parlor_id"
     t.string "name"
     t.string "address1"
@@ -27,7 +27,7 @@ ActiveRecord::Schema.define(version: 2020_08_17_070945) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "assets", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "assets", id: :integer, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "imageable_type"
     t.integer "imageable_id"
     t.string "photo_file_name"
@@ -40,7 +40,7 @@ ActiveRecord::Schema.define(version: 2020_08_17_070945) do
     t.index ["imageable_type"], name: "index_assets_on_imageable_type"
   end
 
-  create_table "business_hours", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "business_hours", id: :integer, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "parlor_id"
     t.integer "wday"
     t.float "open"
@@ -52,13 +52,13 @@ ActiveRecord::Schema.define(version: 2020_08_17_070945) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "categories", id: :integer, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "crowdeds", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "crowdeds", id: :integer, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "business_hour_id"
     t.float "hourly_time"
     t.integer "percent"
@@ -66,7 +66,7 @@ ActiveRecord::Schema.define(version: 2020_08_17_070945) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "parlors", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "parlors", id: :integer, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name"
     t.integer "category_id"
     t.string "url"
@@ -75,7 +75,7 @@ ActiveRecord::Schema.define(version: 2020_08_17_070945) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "users", id: :integer, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"

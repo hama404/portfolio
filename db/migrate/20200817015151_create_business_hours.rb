@@ -1,4 +1,4 @@
-class CreateBusinessHours < ActiveRecord::Migration[5.2]
+class CreateBusinessHours < ActiveRecord::Migration[5.0]
   def change
     create_table :business_hours do |t|
       t.integer :parlor_id, foreign_key: true

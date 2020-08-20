@@ -1,4 +1,4 @@
-class CreateAdresses < ActiveRecord::Migration[5.2]
+class CreateAdresses < ActiveRecord::Migration[5.0]
   def change
     create_table :adresses do |t|
       t.integer :parlor_id, foreign_key: true
