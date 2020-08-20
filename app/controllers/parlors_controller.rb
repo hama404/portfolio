@@ -8,6 +8,7 @@ class ParlorsController < ApplicationController
   end
 
   def show
+    @parlor  = Parlor.find(params[:id])
   end
 
   private

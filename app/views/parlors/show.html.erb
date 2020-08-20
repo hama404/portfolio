@@ -1,2 +1,12 @@
-<h1>Parlors#show</h1>
-<p>Find me in app/views/parlors/show.html.erb</p>
+<% provide(:title, @parlor.name) %>
+
+<!-- LIGHT SECTION -->
+<%= render 'lightsection' %>
+
+<!-- MAIN CONTENT SECTION -->
+<section class="mainContent clearfix">
+  <div class="container">
+    <%= render 'singleproduct' %>
+    <%= render 'productscontent' %>
+  </div>
+</section>
