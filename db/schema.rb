@@ -42,10 +42,10 @@ ActiveRecord::Schema.define(version: 2020_08_17_070945) do
 
   create_table "business_hours", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "parlor_id"
-    t.string "day"
-    t.time "open"
-    t.time "close"
-    t.time "last_order"
+    t.integer "wday"
+    t.float "open"
+    t.float "close"
+    t.float "last_order"
     t.integer "open_crowded"
     t.integer "close_crowded"
     t.datetime "created_at", null: false
@@ -61,7 +61,7 @@ ActiveRecord::Schema.define(version: 2020_08_17_070945) do
 
   create_table "crowdeds", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "business_hour_id"
-    t.time "hourly_time"
+    t.float "hourly_time"
     t.integer "percent"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

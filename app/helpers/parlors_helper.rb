@@ -1,4 +1,34 @@
 module ParlorsHelper
+  #  parlor/index parlor_list
+  def data_set(parlor)
+    labels = []
+    data = []
+    wday = Time.zone.now.wday
+    bh_today = parlor.business_hours.find_by(wday: wday)
+    open = bh_today.open
+    close = bh_today.close
+    open_crowded = bh_today.open_crowded
+    close_crowded = bh_today.close_crowded
+
+    labels << (open - 1).ceil
+    labels << open.ceil if open == open.ceil
+    data << { x: open, y: open_crowded }
+    (open + 1).floor.upto((close - 1).ceil) do |time|
+      labels << time
+      crowded = bh_today.crowdeds.find_by(hourly_time: time.to_f)
+      if crowded
+        data << { x: time.to_f, y: crowded.percent }
+      else
+        data << { x: time.to_f, y: 0 }
+      end
+    end
+    labels << close.ceil if open == close.ceil
+    labels << (close + 1).floor
+    data << { x: close, y: close_crowded }
+
+    { labels: labels, data: data }
+  end
+
   #  parlor/index side_bar
   def pref_name(prefcode)
     JpPrefecture::Prefecture.all[prefcode - 1].name
@@ -11,8 +41,6 @@ module ParlorsHelper
   def adress_count(area)
     Adress.where(prefecture_code: area[:prefcode_min]..area[:prefcode_max]).count
   end
-
-  #  parlor/index parlor_list
 
   #  JpPrefecture
   def rigions

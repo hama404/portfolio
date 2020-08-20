@@ -40,41 +40,41 @@ photo = adress.assets.new
 photo.save!
 
 ## BusinessHours, Crowdeds
-weekdays = "mon tue wed thu fri"
-holidays = "sun sat"
+weekdays = "1 2 3 4 5"
+holidays = "0 6"
 
-weekdays.split.each do |day|
+weekdays.split.each do |wday|
   bh_weekdays = BusinessHour.new(
     parlor_id: 1,
-    day: day,
-    open: "17:00:00",
-    close: "23:30:00",
-    last_order: "23:00:00",
+    wday: wday,
+    open: 17.0,
+    close: 23.5,
+    last_order: 23.0,
     open_crowded: 20,
     close_crowded: 20)
   bh_weekdays.save!
 
   crowded = Crowded.new(
-    hourly_time: "12:00:00",
-    percent: 60)
+    hourly_time: 20.0,
+    percent: 80)
   crowded.business_hour = bh_weekdays
   crowded.save!
 end
 
-holidays.split.each do |day|
+holidays.split.each do |wday|
   bh_holidays = BusinessHour.new(
     parlor_id: 1,
-    day: day,
-    open: "12:00:00",
-    close: "23:30:00",
-    last_order: "23:00:00",
+    wday: wday,
+    open: 12.0,
+    close: 23.5,
+    last_order: 23.0,
     open_crowded: 20,
     close_crowded: 20)
   bh_holidays.save!
 
   crowded = Crowded.new(
-    hourly_time: "12:00:00",
-    percent: 60)
+    hourly_time: 20.0,
+    percent: 80)
   crowded.business_hour = bh_holidays
   crowded.save!
 end

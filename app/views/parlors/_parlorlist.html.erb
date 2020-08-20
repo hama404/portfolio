@@ -28,6 +28,14 @@
             <h4 class="media-heading"><a href="single-product.html">NAME</a></h4>
             <p>123-4556 adress</p>
             <h3>crowded situation</h3>
+            <div class="chart-container">
+              <canvas id="myChart" height="200" width="500"></canvas>
+              <% @chart_data = data_set(parlor) %>
+              <script>
+                var labels = <%= @chart_data[:labels] %>, data = <%= @chart_data[:data].to_json.html_safe %>;
+                draw_graph();
+              </script>
+            </div>
           </div>
         </div>
       </div>

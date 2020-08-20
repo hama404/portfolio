@@ -7,9 +7,8 @@ window.draw_graph = ->
   myChart = new Chart(ctx, {
     type: 'line',
     data: {
-      labels: gon.labels,
       datasets: [{
-        data: gon.data,
+        data: data,
         backgroundColor: 'rgba(71, 186, 193, 0.2)',
         borderColor: 'rgba(71, 186, 193, 1)',
         borderWidth: 1
@@ -21,6 +20,10 @@ window.draw_graph = ->
          display: false
       },
       scales: {
+        xAxes: [{
+          type: 'category',
+          labels: labels
+        }],
         yAxes: [{
           ticks: {
             autoSkip: true,
