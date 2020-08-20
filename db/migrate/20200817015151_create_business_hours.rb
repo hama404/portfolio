@@ -1,7 +1,7 @@
 class CreateBusinessHours < ActiveRecord::Migration[5.2]
   def change
     create_table :business_hours do |t|
-      t.references :parlor, foreign_key: true
+      t.integer :parlor_id, foreign_key: true
       t.integer :wday
       t.float :open
       t.float :close

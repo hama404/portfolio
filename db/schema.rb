@@ -13,7 +13,7 @@
 ActiveRecord::Schema.define(version: 2020_08_17_070945) do
 
   create_table "adresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.bigint "parlor_id"
+    t.integer "parlor_id"
     t.string "name"
     t.string "address1"
     t.string "address2"
@@ -25,23 +25,23 @@ ActiveRecord::Schema.define(version: 2020_08_17_070945) do
     t.string "telephone"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["parlor_id"], name: "index_adresses_on_parlor_id"
   end
 
   create_table "assets", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "imageable_type"
-    t.bigint "imageable_id"
+    t.integer "imageable_id"
     t.string "photo_file_name"
     t.string "photo_content_type"
     t.bigint "photo_file_size"
     t.datetime "photo_updated_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["imageable_type", "imageable_id"], name: "index_assets_on_imageable_type_and_imageable_id"
+    t.index ["imageable_id"], name: "index_assets_on_imageable_id"
+    t.index ["imageable_type"], name: "index_assets_on_imageable_type"
   end
 
   create_table "business_hours", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.bigint "parlor_id"
+    t.integer "parlor_id"
     t.integer "wday"
     t.float "open"
     t.float "close"
@@ -50,7 +50,6 @@ ActiveRecord::Schema.define(version: 2020_08_17_070945) do
     t.integer "close_crowded"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["parlor_id"], name: "index_business_hours_on_parlor_id"
   end
 
   create_table "categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -60,22 +59,20 @@ ActiveRecord::Schema.define(version: 2020_08_17_070945) do
   end
 
   create_table "crowdeds", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.bigint "business_hour_id"
+    t.integer "business_hour_id"
     t.float "hourly_time"
     t.integer "percent"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["business_hour_id"], name: "index_crowdeds_on_business_hour_id"
   end
 
   create_table "parlors", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name"
-    t.bigint "category_id"
+    t.integer "category_id"
     t.string "url"
     t.integer "stores", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["category_id"], name: "index_parlors_on_category_id"
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -90,7 +87,4 @@ ActiveRecord::Schema.define(version: 2020_08_17_070945) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "adresses", "parlors"
-  add_foreign_key "business_hours", "parlors"
-  add_foreign_key "crowdeds", "business_hours"
 end

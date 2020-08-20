@@ -1,7 +1,7 @@
 class CreateAdresses < ActiveRecord::Migration[5.2]
   def change
     create_table :adresses do |t|
-      t.references :parlor, foreign_key: true
+      t.integer :parlor_id, foreign_key: true
       t.string :name
       t.string :address1
       t.string :address2

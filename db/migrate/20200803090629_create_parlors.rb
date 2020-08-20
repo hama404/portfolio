@@ -2,7 +2,7 @@ class CreateParlors < ActiveRecord::Migration[5.2]
   def change
     create_table :parlors do |t|
       t.string :name
-      t.references :category
+      t.integer :category_id, foreign_key: true
       ## infomation
       t.string :url
       t.integer :stores, default: 0
