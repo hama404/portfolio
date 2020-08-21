@@ -74,7 +74,7 @@ gem 'devise'
 gem 'jp_prefecture'
 gem 'countries'
 gem 'paperclip'
-gem 'aws-sdk', '~> 2.3'
+gem 'aws-sdk', '~> 3'
 group :test do
   gem 'capybara'
   gem 'webdrivers'
