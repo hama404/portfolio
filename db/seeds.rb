@@ -34,10 +34,16 @@ adress.parlor.stores += 1
 adress.save!
 
 ## Assets
-photo = parlor.assets.new
-photo.save!
-photo = adress.assets.new
-photo.save!
+image = parlor.assets.new
+image.save!
+
+dir = 'app/assets/images/parlors/andpeople_ginza/'
+Dir.each_child dir do |file|
+  path = Rails.root.join(dir,file)
+  image = adress.assets.new(
+    photo: File.new(path))
+  image.save!
+end
 
 ## BusinessHours, Crowdeds
 weekdays = "1 2 3 4 5"
