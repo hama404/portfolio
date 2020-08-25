@@ -1,8 +1,9 @@
 module ParlorsHelper
   #  parlor/index parlor_list
-  def data_set(parlor)
+  def data_set(store)
     labels = []
     data = []
+    parlor = store.parlor
     wday = Time.zone.now.wday
     bh_today = parlor.business_hours.find_by(wday: wday)
     open = bh_today.open

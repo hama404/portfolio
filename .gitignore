@@ -18,6 +18,7 @@
 
 .byebug_history
 /public/spree
+/public/system/assets
 /vendor/*
 !/vendor/assets
 

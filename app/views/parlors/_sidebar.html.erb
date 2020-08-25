@@ -1,10 +1,9 @@
 <div class="col-md-3 col-sm-4 col-xs-12 sideBar">
-  <div class="panel panel-default">
+  <div class="panel panel-default filterNormal">
     <div class="panel-heading">エリア</div>
     <div class="panel-body">
       <div class="collapse navbar-collapse navbar-ex1-collapse navbar-side-collapse">
         <ul class="nav navbar-nav side-nav">
-        
           <% rigions.each do |key, value| %>
             <li>
               <a href="javascript:;" data-toggle="collapse" data-target="#<%= key %>"><%= value[:name] %><i class="fa fa-plus"></i></a>
@@ -17,17 +16,6 @@
           <% end %>
         </ul>
       </div>
-    </div>
-  </div>
-  
-  <div class="panel panel-default filterNormal">
-    <div class="panel-heading">エリア</div>
-    <div class="panel-body">
-      <ul class="list-unstyled">
-        <% rigions.each_value do |area| %>
-          <li><a href="#"><%= area[:name] %><span>(<%= adress_count(area) %>)</span></a></li>
-        <% end %>
-      </ul>
     </div>
   </div>
 </div>

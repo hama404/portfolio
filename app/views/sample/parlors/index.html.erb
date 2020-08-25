@@ -1,6 +1,6 @@
-<h1>Shops#index</h1>
 <%# provide(:title, @product.name) %>
 
 <!-- MAIN CONTENT SECTION -->
 <%= render 'sidebar' %>
-<%= render 'parlorlist' %>
+<%= render 'parlorlist', stores: @parlors %>
+<%= render 'quick_view_modal' %>

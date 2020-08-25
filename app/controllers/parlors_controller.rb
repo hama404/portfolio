@@ -1,20 +1,17 @@
 class ParlorsController < ApplicationController
   def index
     if params[:q]
-      @parlors = Parlor.where
+      @parlors = Adress.where
     else
-      @parlors = Parlor.all
+      @parlors = Adress.all
     end
   end
 
   def show
-    @parlor  = Parlor.find(params[:id])
+    @parlor  = Adress.find(params[:id])
   end
 
   private
 
   # Only allow a trusted parameter "white list" through.
-  def micropost_params
-    params.require(:parlor).permit(:photo, :q)
-  end
 end

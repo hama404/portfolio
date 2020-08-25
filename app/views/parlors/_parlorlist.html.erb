@@ -1,36 +1,19 @@
 <div class="col-md-9 col-sm-8 col-xs-12">
-  <div class="row filterArea">
-    <div class="col-xs-6">
-      <select name="guiest_id1" id="guiest_id1" class="select-drop">
-        <option value="0">Default sorting</option>
-        <option value="1">Sort by popularity</option>
-        <option value="2">Sort by rating</option>
-        <option value="3">Sort by newness</option>
-        <option value="3">Sort by price</option>
-      </select>
-    </div>
-    <div class="col-xs-6">
-      <div class="btn-group pull-right" role="group">
-        <button type="button" class="btn btn-default" onclick="window.location.href='product_grid_left_sidebar.html'"><i class="fa fa-th" aria-hidden="true"></i><span>Grid</span></button>
-        <button type="button" class="btn btn-default active" onclick="window.location.href='product_list_left_sidebar.html'"><i class="fa fa-th-list" aria-hidden="true"></i><span>List</span></button>
-      </div>
-    </div>
-  </div>
   <div class="row productListSingle">
-    <% @parlors.each do |parlor| %>
+    <% stores.each do |store| %>
       <div class="col-xs-12">
         <div class="media">
           <div class="media-left">
-            <%= image_tag(parlor.assets.first.photo.url, class: "media-object", alt: "Image") %>
+            <%= image_tag(store.assets.first.photo.url, class: "media-object", alt: "Image") %>
             <span class="maskingImage"><a data-toggle="modal" href=".quick-view" class="btn viewBtn">Quick View</a></span>
           </div>
           <div class="media-body">
-            <h4 class="media-heading"><%= link_to 'NAME', parlor_path(parlor.id) %></h4>
-            <p>123-4556 adress</p>
+            <h4 class="media-heading"><%= link_to store.name, parlor_path(store.id) %></h4>
+            <p><%= "#{store.zipcode_jp} #{store.adress}" %></p>
             <h3>crowded situation</h3>
             <div class="chart-container">
               <canvas id="myChart" height="200" width="500"></canvas>
-              <% @chart_data = data_set(parlor) %>
+              <% @chart_data = data_set(store) %>
               <script>
                 var labels = <%= @chart_data[:labels] %>, data = <%= @chart_data[:data].to_json.html_safe %>;
                 draw_graph();
@@ -43,7 +26,7 @@
     <div class="col-xs-12">
       <div class="media">
         <div class="media-left">
-          <%= image_tag("products/products-02.jpg", :class => "media-object", :alt => "Image") %>
+          <%= image_tag("sample/products/products-02.jpg", :class => "media-object", :alt => "Image") %>
           <span class="maskingImage"><a data-toggle="modal" href=".quick-view" class="btn viewBtn">Quick View</a></span>
         </div>
         <div class="media-body">

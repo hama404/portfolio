@@ -6,7 +6,7 @@
           <div class="carousel-inner">
             <% store.assets.each_with_index do |asset, index| %>
               <div class="item <%= "active" if index == 0 %>" data-thumb="<%= index %>">
-                <%= image_tag asset.photo.url %>
+                <%= image_tag asset.photo.url :large %>
               </div>
             <% end %>
           </div>
@@ -15,7 +15,7 @@
           <div id="thumbcarousel" class="carousel slide" data-interval="false">
             <% store.assets.each_with_index do |asset, index| %>
               <div data-target="#carousel" data-slide-to="<%= index %>" class="thumb">
-                <%= image_tag asset.photo.url :thumb %>
+                <%= image_tag asset.photo :small %>
               </div>
             <% end %>
             <a class="left carousel-control" href="#thumbcarousel" role="button" data-slide="prev">
