@@ -1,6 +1,13 @@
 <%# provide(:title, @product.name) %>
 
+<!-- LIGHT SECTION -->
+<%= render 'lightsection', title: "parlor list" %>
+
 <!-- MAIN CONTENT SECTION -->
-<%= render 'sidebar' %>
-<%= render 'parlorlist', stores: @parlors %>
-<%= render 'quick_view_modal' %>
+<section class="mainContent clearfix">
+  <div class="container">
+    <%= render 'sidebar' %>
+    <%= render 'parlorlist', stores: @parlors %>
+    <%= render 'quick_view_modal' %>
+  </div>
+</section>
