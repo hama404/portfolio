@@ -15,9 +15,9 @@
  *= require plugins/selectbox/select_option1
  *= require plugins/rs-plugin/css/settings
  *= require plugins/owl-carousel/owl.carousel
+ *= require font-awesome
  *= require css/style
  *= require css/colors/default
- *= require font-awesome
+ *= require parlors
  *= require_self
- *= require_tree .
  */

@@ -8,7 +8,7 @@ class ParlorsController < ApplicationController
   end
 
   def show
-    @parlor  = Adress.find(params[:id])
+    @parlor = Adress.find(params[:id])
   end
 
   private

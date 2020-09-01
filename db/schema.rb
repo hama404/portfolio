@@ -41,13 +41,11 @@ ActiveRecord::Schema.define(version: 2020_08_17_070945) do
   end
 
   create_table "business_hours", id: :integer, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.integer "parlor_id"
+    t.integer "adress_id"
     t.integer "wday"
     t.float "open"
     t.float "close"
     t.float "last_order"
-    t.integer "open_crowded"
-    t.integer "close_crowded"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

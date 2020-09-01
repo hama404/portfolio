@@ -1,38 +1,43 @@
 <div class="row singleProduct">
-  <div class="col-xs-12">
-    <div class="media">
-      <div class="media-left productSlider">
-        <div id="carousel" class="carousel slide" data-ride="carousel">
-          <div class="carousel-inner">
-            <% store.assets.each_with_index do |asset, index| %>
-              <div class="item <%= "active" if index == 0 %>" data-thumb="<%= index %>">
-                <%= image_tag asset.photo.url %>
-              </div>
-            <% end %>
-          </div>
-        </div>
-        <div class="clearfix">
-          <div id="thumbcarousel" class="carousel slide" data-interval="false">
-            <% store.assets.each_with_index do |asset, index| %>
-              <div data-target="#carousel" data-slide-to="<%= index %>" class="thumb">
-                <%= image_tag asset.photo.url :thumb %>
-              </div>
-            <% end %>
-            <a class="left carousel-control" href="#thumbcarousel" role="button" data-slide="prev">
-              <span class="glyphicon glyphicon-chevron-left"></span>
-            </a>
-            <a class="right carousel-control" href="#thumbcarousel" role="button" data-slide="next">
-              <span class="glyphicon glyphicon-chevron-right"></span>
-            </a>
-          </div>
+  <div class="media">
+    <div class="productSlider">
+      <div id="carousel" class="carousel slide center-block" data-ride="carousel">
+        <div class="carousel-inner">
+          <% store.assets.each_with_index do |asset, index| %>
+            <div class="item <%= "active" if index == 0 %>" data-thumb="<%= index %>">
+              <%= image_tag asset.photo.url %>
+            </div>
+          <% end %>
         </div>
       </div>
-      <div class="media-body">
-        <ul class="list-inline">
-          <li><a href="product_grid_left_sidebar.html"><i class="fa fa-reply" aria-hidden="true"></i>一覧ページへ戻る</a></li>
-        </ul>
+      <div class="clearfix">
+        <div id="thumbcarousel" class="carousel slide" data-interval="false">
+          <% store.assets.each_with_index do |asset, index| %>
+            <div data-target="#carousel" data-slide-to="<%= index %>" class="thumb">
+              <%= image_tag asset.photo.url :thumb %>
+            </div>
+          <% end %>
+          <a class="left carousel-control" href="#thumbcarousel" role="button" data-slide="prev">
+            <span class="glyphicon glyphicon-chevron-left"></span>
+          </a>
+          <a class="right carousel-control" href="#thumbcarousel" role="button" data-slide="next">
+            <span class="glyphicon glyphicon-chevron-right"></span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-6">
         <h2><%= store.name %></h2>
-        <p>123-4556 adress</p>
+        <p><%= "#{store.zipcode_jp} #{store.adress}" %></p>
+        <p>TEL : <%= store.telephone %></p>
+        <p>HP : <%= link_to store.parlor.url, store.parlor.url %></p>
+        <p>営業時間、定休日、LO</p>
+        <p>お知らせ</p>
+      </div>
+      <div class="col-xs-6">
         <h3>crowded situation</h3>
         <div class="chart-container">
           <canvas id="myChart" height="200" width="500"></canvas>
@@ -41,24 +46,6 @@
             var labels = <%= @chart_data[:labels] %>, data = <%= @chart_data[:data].to_json.html_safe %>;
             draw_graph();
           </script>
-        </div>
-        <span class="quick-drop">
-          <select name="guiest_id3" id="guiest_id3" class="select-drop">
-            <option value="0">S</option>
-            <option value="1">M</option>
-            <option value="2">L</option>
-            <option value="3">XL</option>
-          </select>
-        </span>
-        <span class="quick-drop resizeWidth">
-          <select name="guiest_id4" id="guiest_id4" class="select-drop">
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-          </select>
-        </span>
-        <div class="btn-area">
-          <a href="cart_page.html" class="btn btn-primary btn-block">カートへ入れる<i class="fa fa-angle-right" aria-hidden="true"></i></a>
         </div>
       </div>
     </div>

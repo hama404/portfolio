@@ -4,6 +4,12 @@
 # or operating system, you probably want to add a global ignore instead:
 #   git config --global core.excludesfile '~/.gitignore_global'
 
+# Add ignore file
+/public/system/assets
+/app/assets/stylesheets/sample/
+/app/assets/javascripts/sample/
+/app/views/sample/
+
 # Ignore bundler config.
 /.bundle
 
@@ -18,7 +24,6 @@
 
 .byebug_history
 /public/spree
-/public/system/assets
 /vendor/*
 !/vendor/assets
 

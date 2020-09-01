@@ -3,29 +3,19 @@ module ParlorsHelper
   def data_set(store)
     labels = []
     data = []
-    parlor = store.parlor
     wday = Time.zone.now.wday
-    bh_today = parlor.business_hours.find_by(wday: wday)
+    bh_today = store.business_hours.find_by(wday: wday)
     open = bh_today.open
     close = bh_today.close
-    open_crowded = bh_today.open_crowded
-    close_crowded = bh_today.close_crowded
 
-    labels << (open - 1).ceil
-    labels << open.ceil if open == open.ceil
-    data << { x: open, y: open_crowded }
-    (open + 1).floor.upto((close - 1).ceil) do |time|
-      labels << time
+    labels << open.floor - 1
+    open.floor.upto close.ceil do |time|
       crowded = bh_today.crowdeds.find_by(hourly_time: time.to_f)
-      if crowded
-        data << { x: time.to_f, y: crowded.percent }
-      else
-        data << { x: time.to_f, y: 0 }
-      end
+      percent = crowded ? crowded.percent : 0
+      labels << time
+      data << { x: time.to_f, y: percent }
     end
-    labels << close.ceil if open == close.ceil
-    labels << (close + 1).floor
-    data << { x: close, y: close_crowded }
+    labels << close.ceil + 1
 
     { labels: labels, data: data }
   end

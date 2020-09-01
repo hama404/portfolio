@@ -1,4 +1,4 @@
 class BusinessHour < ApplicationRecord
-  belongs_to :parlor, dependent: :destroy
+  belongs_to :adress, dependent: :destroy
   has_many :crowdeds
 end

@@ -17,9 +17,9 @@ module ApplicationHelper
 
     # write image adata
     open(url) do |image|
-     File.open(filePath,"wb") do |file|
-      file.puts image.read
-     end
+      File.open(filePath, "wb") do |file|
+        file.puts image.read
+      end
     end
   end
 end

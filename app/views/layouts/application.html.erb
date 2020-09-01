@@ -12,13 +12,7 @@
       <% elsif alert %>
         <p class="alert"><%= alert %></p>
       <% end %>
-      <section class="mainContent clearfix">
-        <div class="container">
-          <div class="row">
-            <%= yield %>
-          </div>
-        </div>
-      </section>
+      <%= yield %>
       <%= render 'layouts/footer' %>
       <%= render 'layouts/modal/login_modal' %>
       <%= render 'layouts/modal/signup_modal' %>
