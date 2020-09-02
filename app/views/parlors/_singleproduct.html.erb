@@ -30,12 +30,19 @@
   <div class="container">
     <div class="row">
       <div class="col-xs-6">
-        <h2><%= store.name %></h2>
+        <h2><%= name(store) %></h2>
         <p><%= "#{store.zipcode_jp} #{store.adress}" %></p>
         <p>TEL : <%= store.telephone %></p>
-        <p>HP : <%= link_to store.parlor.url, store.parlor.url %></p>
+        <p>HP : <%= link_to store.parlor.url, store.parlor.url if store.parlor.url %></p>
+        <p>insta : <%= link_to store.parlor.insta, store.parlor.insta if store.parlor.insta %></p>
         <p>営業時間、定休日、LO</p>
         <p>お知らせ</p>
+        <div>
+          <% news(store).each do |p| %>
+            <p><%= p %></p>
+          <% end %>
+          <p><br></p>
+        </div>
       </div>
       <div class="col-xs-6">
         <h3>crowded situation</h3>

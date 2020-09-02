@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_17_070945) do
+ActiveRecord::Schema.define(version: 2020_09_01_061736) do
 
   create_table "adresses", id: :integer, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "parlor_id"
@@ -28,16 +28,16 @@ ActiveRecord::Schema.define(version: 2020_08_17_070945) do
   end
 
   create_table "assets", id: :integer, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "imageable_type"
-    t.integer "imageable_id"
+    t.string "assetable_type"
+    t.integer "assetable_id"
     t.string "photo_file_name"
     t.string "photo_content_type"
     t.bigint "photo_file_size"
     t.datetime "photo_updated_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["imageable_id"], name: "index_assets_on_imageable_id"
-    t.index ["imageable_type"], name: "index_assets_on_imageable_type"
+    t.index ["assetable_id"], name: "index_assets_on_assetable_id"
+    t.index ["assetable_type"], name: "index_assets_on_assetable_type"
   end
 
   create_table "business_hours", id: :integer, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -64,10 +64,21 @@ ActiveRecord::Schema.define(version: 2020_08_17_070945) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "infomations", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "infoable_type"
+    t.integer "infoable_id"
+    t.text "notice"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["infoable_id"], name: "index_infomations_on_infoable_id"
+    t.index ["infoable_type"], name: "index_infomations_on_infoable_type"
+  end
+
   create_table "parlors", id: :integer, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name"
     t.integer "category_id"
     t.string "url"
+    t.string "insta"
     t.integer "stores", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

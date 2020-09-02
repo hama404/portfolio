@@ -8,14 +8,14 @@
             <span class="maskingImage"><a data-toggle="modal" href=".quick-view" class="btn viewBtn">Quick View</a></span>
           </div>
           <div class="media-body">
-            <h4 class="media-heading"><%= link_to store.name, parlor_path(store.id) %></h4>
+            <h4 class="media-heading"><%= link_to name(store), parlor_path(store.id) %></h4>
             <p><%= "#{store.zipcode_jp} #{store.adress}" %></p>
             <h3>crowded situation</h3>
             <div class="chart-container">
-              <canvas id="myChart" height="200" width="500"></canvas>
+              <canvas id="myChart<%= store.id %>" height="200" width="500"></canvas>
               <% @chart_data = data_set(store) %>
               <script>
-                var labels = <%= @chart_data[:labels] %>, data = <%= @chart_data[:data].to_json.html_safe %>;
+                var labels = <%= @chart_data[:labels] %>, data = <%= @chart_data[:data].to_json.html_safe %>, id = "myChart<%= store.id %>";
                 draw_graph();
               </script>
             </div>

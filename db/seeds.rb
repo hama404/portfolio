@@ -13,18 +13,16 @@ cat = Category.new(name: 'cafe')
 cat.save!
 
 
-## and people
+## AND PEOPLE
 # Parlors, Adresses
-parlor = Parlor.new(
+parlor = cat.parlors.new(
   name: 'and people',
-  category_id: 1,
   url: 'https://www.andpeople.co.jp/')
 parlor.save!
 parlor.assets.create!
 
 adress = parlor.adresses.new(
   name: 'and people ginza',
-  parlor_id: 1,
   address1: '銀座6-5-15',
   address2: '銀座能楽堂飯島ビル9F',
   city: '中央区',
@@ -47,6 +45,10 @@ Dir.each_child dir do |file|
   adress.assets.create!(
     photo: File.new(path))
 end
+
+# Infomations
+adress.infos.create!(
+  notice: "★★コロナウイルス感染防止のため、当店では下記の対策をとらせて頂いております★★\n・入口でアルコール消毒\n・お客様とスタッフの検温\n・飛沫防止用の透明ビニールの設置\n・席数を通常の7割に\n\n◆and people銀座店は、東京都の要請を受けて、8月3日(月)から時間短縮して営業致します。\n月〜金 17:00~22:00\n土日祝 12:00~22:00\n\n随時ご予約も承っております。\n※営業日や営業時間は、政府からの要請によって変更が生じる場合がございます。予めご了承ください。\n")
 
 # BusinessHours, Crowdeds
 weekdays = "1 2 3 4 5"
@@ -92,6 +94,74 @@ holidays.split.each do |wday|
     hourly_time: 21.0,
     percent: 60)
   bh_holidays.crowdeds.create!(
+    hourly_time: 22.0,
+    percent: 10)
+end
+
+
+## BUY ME STAND
+# Parlors, Adresses
+parlor = cat.parlors.new(
+  name: 'BUY ME STAND',
+  insta: 'https://www.instagram.com/buy_me_stand/')
+parlor.save!
+parlor.assets.create!
+
+adress = parlor.adresses.new(
+  address1: '東1-31-19',
+  address2: 'マンション並木橋302',
+  city: '渋谷区',
+  state: '東京都',
+  prefecture_code: 13,
+  zipcode: 1500011,
+  telephone: "03-6450-6969")
+adress.parlor.stores += 1
+adress.save!
+
+# Assets
+first = '383e6b86-3261-4041-ac13-b585c507148b_m.jpg'
+dir = 'app/assets/images/parlors/buy_me_stand/'
+
+adress.assets.create!(
+  photo: File.new(Rails.root.join(dir,first)))
+Dir.each_child dir do |file|
+  next if file == first
+  path = Rails.root.join(dir,file)
+  adress.assets.create!(
+    photo: File.new(path))
+end
+
+# Infomations
+
+# BusinessHours, Crowdeds
+wdays = "0 1 2 3 4 5 6"
+
+wdays.split.each do |wday|
+  bh_wdays = adress.business_hours.new(
+    wday: wday,
+    open: 8.0,
+    close: 22.0)
+  bh_wdays.save!
+
+  bh_wdays.crowdeds.create!(
+    hourly_time: 11.0,
+    percent: 50)
+  bh_wdays.crowdeds.create!(
+    hourly_time: 12.0,
+    percent: 80)
+  bh_wdays.crowdeds.create!(
+    hourly_time: 13.0,
+    percent: 60)
+  bh_wdays.crowdeds.create!(
+    hourly_time: 19.0,
+    percent: 40)
+  bh_wdays.crowdeds.create!(
+    hourly_time: 20.0,
+    percent: 80)
+  bh_wdays.crowdeds.create!(
+    hourly_time: 21.0,
+    percent: 30)
+  bh_wdays.crowdeds.create!(
     hourly_time: 22.0,
     percent: 10)
 end

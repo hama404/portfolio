@@ -5,13 +5,8 @@ class CreateParlors < ActiveRecord::Migration[5.0]
       t.integer :category_id, foreign_key: true
       ## infomation
       t.string :url
+      t.string :insta
       t.integer :stores, default: 0
-
-      ## assets => carrierwave
-      ## adress => jp_pref
-
-      ## business hours
-      ## crowded situation
 
       t.timestamps
     end

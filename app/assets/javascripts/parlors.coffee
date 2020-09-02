@@ -3,7 +3,7 @@
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
 window.draw_graph = ->
-  ctx = document.getElementById("myChart")
+  ctx = document.getElementById(id)
   myChart = new Chart(ctx, {
     type: 'line',
     data: {

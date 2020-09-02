@@ -9,14 +9,20 @@ module ApplicationHelper
     end
   end
 
-  def save_image(url)
+  def save_image(src, name)
+    dirName = "app/assets/images/parlors/"
+
     # ready filepath
-    fileName = File.basename(url).split("?").first
-    dirName = "app/assets/images/parlors/andpeople_ginza/"
-    filePath = dirName + fileName
+    file = File.basename(src).split("?").first
+    dir = name.downcase.gsub(" ","_")
+    dirPath = dirName + dir + "/"
+    filePath = dirPath + file
+
+    # create folder if not exist
+    FileUtils.mkdir_p(dirPath) unless FileTest.exist?(dirPath)
 
     # write image adata
-    open(url) do |image|
+    open(src) do |image|
       File.open(filePath, "wb") do |file|
         file.puts image.read
       end

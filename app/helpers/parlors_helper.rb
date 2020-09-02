@@ -33,6 +33,24 @@ module ParlorsHelper
     Adress.where(prefecture_code: area[:prefcode_min]..area[:prefcode_max]).count
   end
 
+  #  parlor/show single_parlor
+  def name(store)
+    if store.name
+      store.name
+    else
+      store.parlor.name
+    end
+  end
+
+  def news(store)
+    if store.infos.first
+      news = store.infos.first.notice
+      news.split("\n")
+    else
+      ["nothig"]
+    end
+  end
+
   #  JpPrefecture
   def rigions
     #      rigions.each do |key, value|
@@ -42,7 +60,6 @@ module ParlorsHelper
     #          p pref_count(num)
     #        end
     #      end
-
     {
       area1: {
         name: "北海道・東北",
