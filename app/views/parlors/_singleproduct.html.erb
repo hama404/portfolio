@@ -29,8 +29,8 @@
   </div>
   <div class="container">
     <div class="row">
-      <div class="col-xs-6">
-        <h2><%= name(store) %></h2>
+      <div class="col-xs-12 col-lg-6">
+        <h2><%= store.name %></h2>
         <p><%= "#{store.zipcode_jp} #{store.adress}" %></p>
         <p>TEL : <%= store.telephone %></p>
         <p>HP : <%= link_to store.parlor.url, store.parlor.url if store.parlor.url %></p>
@@ -44,13 +44,13 @@
           <p><br></p>
         </div>
       </div>
-      <div class="col-xs-6">
+      <div class="col-xs-12 col-lg-6">
         <h3>crowded situation</h3>
         <div class="chart-container">
-          <canvas id="myChart" height="200" width="500"></canvas>
+          <canvas id="myChart<%= store.id %>" height="200" width="500"></canvas>
           <% @chart_data = data_set(@parlor) %>
           <script>
-            var labels = <%= @chart_data[:labels] %>, data = <%= @chart_data[:data].to_json.html_safe %>;
+            var labels = <%= @chart_data[:labels] %>, data = <%= @chart_data[:data].to_json.html_safe %>, id = "myChart<%= store.id %>";
             draw_graph();
           </script>
         </div>

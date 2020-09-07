@@ -2,9 +2,132 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.productListSingle .media .media-body .chart-container {
-  height: 200px;
-  width: 400px;
+/* ====== index =====
+6. SIDEBARS
+7. PRODUCTS
+  7.1 PRODUCTS COMMON
+  7.2 PRODUCTS LIST
+  7.3 SINGLE PRODUCTS
+===================== */
+
+.productListSingle .media {
+  .media-left {
+    position: relative;
+    overflow: hidden;
+    img {
+      transition: all 0.5s ease-in-out;
+    }
+    .maskingImage {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(71, 186, 193, 0.9);
+      opacity: 0;
+      transition: all 0.3s ease-in-out;
+      .viewBtn {
+        width: 175px;
+        padding: 0;
+        min-height: 55px;
+        border: 3px solid #ffffff;
+        text-transform: uppercase;
+        font-weight: 700;
+        color: #ffffff;
+        font-size: 16px;
+        transition: all 0.3s ease-in-out;
+        box-shadow: 0 0;
+        border-radius: 0;
+        line-height: 55px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        &:hover {
+          background-color: #ffffff;
+          color: #47bac1;
+        }
+      }
+    }
+  }
+  .media-body {
+    h4.media-heading a {
+      font-size: 20px;
+      letter-spacing: 1px;
+      margin-bottom: 25px;
+      transition: all 0.3s ease-in-out;
+      color: inherit;
+    }
+    p {
+      font-size: 14px;
+      color: #888888;
+      line-height: 22px;
+      margin-bottom: 25px;
+    }
+    h3 {
+      color: #c5c5c5;
+      font-weight: 700;
+      transition: all 0.3s ease-in-out;
+    }
+    .chart-container {
+      height: 200px;
+      width: 400px;
+    }
+  }
+
+  &:hover {
+    .media-left {
+      img {
+        transform: scale(1.2);
+      }
+      .maskingImage {
+        opacity: 1;
+        .viewBtn {
+          animation: itemMove 0.3s linear;
+        }
+      }
+    }
+    .media-body {
+      .media-heading, h3 {
+        color: #47bac1;
+      }
+    }
+  }
+
+  @media (max-width: 479px) {
+    .media-left {
+      float: none !important;
+      display: block;
+      margin: 0 0 20px 0;
+      img {
+        width: 100%;
+        height: auto;
+      }
+    }
+  }
+  @media (min-width: 480px) {
+    .media-left {
+      float: none !important;
+      display: block;
+      margin: 0 0 20px 0;
+      img {
+        width: 100%;
+        height: auto;
+      }
+    }
+  }
+  @media (min-width: 768px) {
+    .media-left {
+      float: left !important;
+      margin-right: 30px;
+      display: inline-block;
+      width: 226px;
+      img {
+        width: 100%;
+        height: auto;
+      }
+    }
+  }
 }
 
 /*=== 6. SIDEBARS ===*/
@@ -373,134 +496,9 @@
   }
 }
 
-.productListSingle .media {
-  margin-bottom: 50px;
-}
-.productListSingle .media .media-left {
-  position: relative;
-  padding-right: 0;
-  overflow: hidden;
-}
-.productListSingle .media .media-left img {
-  -webkit-transition: all 0.5s ease-in-out;
-  -moz-transition: all 0.5s ease-in-out;
-  -ms-transition: all 0.5s ease-in-out;
-  -o-transition: all 0.5s ease-in-out;
-  transition: all 0.5s ease-in-out;
-}
-.productListSingle .media .media-left .maskingImage .viewBtn {
-  width: 175px;
-  padding: 0;
-  line-height: 55px;
-}
-@media (max-width: 479px) {
-  .productListSingle .media .media-left {
-    float: none !important;
-    display: block;
-    margin: 0 0 20px 0;
-  }
-  .productListSingle .media .media-left img {
-    width: 100%;
-    height: auto;
-  }
-}
-@media (min-width: 480px) {
-  .productListSingle .media .media-left {
-    float: none !important;
-    display: block;
-    margin: 0 0 20px 0;
-  }
-  .productListSingle .media .media-left img {
-    width: 100%;
-    height: auto;
-  }
-}
-@media (min-width: 768px) {
-  .productListSingle .media .media-left {
-    float: left !important;
-    margin-right: 30px;
-    display: inline-block;
-    width: 226px;
-  }
-  .productListSingle .media .media-left img {
-    width: 100%;
-    height: auto;
-  }
-}
-.productListSingle .media .media-body .media-heading a {
-  font-size: 20px;
-  letter-spacing: 1px;
-  margin-bottom: 25px;
-  -webkit-transition: all 0.3s ease-in-out;
-  -moz-transition: all 0.3s ease-in-out;
-  -ms-transition: all 0.3s ease-in-out;
-  -o-transition: all 0.3s ease-in-out;
-  transition: all 0.3s ease-in-out;
-  color: inherit;
-}
-.productListSingle .media .media-body p {
-  font-size: 14px;
-  color: #888888;
-  line-height: 22px;
-  margin-bottom: 25px;
-}
-.productListSingle .media .media-body h3 {
-  color: #c5c5c5;
-  font-weight: 700;
-  -webkit-transition: all 0.3s ease-in-out;
-  -moz-transition: all 0.3s ease-in-out;
-  -ms-transition: all 0.3s ease-in-out;
-  -o-transition: all 0.3s ease-in-out;
-  transition: all 0.3s ease-in-out;
-}
-.productListSingle .media .media-body .btn-group .btn-default {
-  border-radius: 0;
-  width: 35px;
-  height: 35px;
-  padding: 0;
-  text-align: center;
-  margin-right: 7px;
-  border-color: #d0d0d0;
-  -webkit-transition: all 0.3s ease-in-out;
-  -moz-transition: all 0.3s ease-in-out;
-  -ms-transition: all 0.3s ease-in-out;
-  -o-transition: all 0.3s ease-in-out;
-  transition: all 0.3s ease-in-out;
-}
-.productListSingle .media .media-body .btn-group .btn-default i {
-  -webkit-transition: all 0.3s ease-in-out;
-  -moz-transition: all 0.3s ease-in-out;
-  -ms-transition: all 0.3s ease-in-out;
-  -o-transition: all 0.3s ease-in-out;
-  transition: all 0.3s ease-in-out;
-  color: #888888;
-}
-.productListSingle .media .media-body .btn-group .btn-default:hover, .productListSingle .media .media-body .btn-group .btn-default:focus {
-  background-color: #47bac1;
-  border-color: #47bac1;
-}
-.productListSingle .media .media-body .btn-group .btn-default:hover i, .productListSingle .media .media-body .btn-group .btn-default:focus i {
-  color: #ffffff;
-}
-.productListSingle .media:hover .pull-left img {
-  -moz-transform: scale(1.2);
-  -o-transform: scale(1.2);
-  -ms-transform: scale(1.2);
-  -webkit-transform: scale(1.2);
-  transform: scale(1.2);
-}
-.productListSingle .media:hover .maskingImage {
-  opacity: 1;
-}
-.productListSingle .media:hover .maskingImage .viewBtn {
-  -webkit-animation: itemMove 0.3s linear;
-  animation: itemMove 0.3s linear;
-}
-.productListSingle .media:hover .media-heading, .productListSingle .media:hover h3 {
-  color: #47bac1;
-}
+/*=== 7.2 PRODUCTS LIST ===*/
 
-/*=== 7.2 SINGLE PRODUCTS ===*/
+/*=== 7.3 SINGLE PRODUCTS ===*/
 .singleProduct .media {
   margin-bottom: 70px;
 }

@@ -3,12 +3,12 @@
     <% stores.each do |store| %>
       <div class="col-xs-12">
         <div class="media">
-          <div class="media-left">
+          <div class="media-left media-middle">
             <%= image_tag(store.assets.first.photo.url :medium, class: "media-object", alt: "Image") %>
             <span class="maskingImage"><a data-toggle="modal" href=".quick-view" class="btn viewBtn">Quick View</a></span>
           </div>
           <div class="media-body">
-            <h4 class="media-heading"><%= link_to name(store), parlor_path(store.id) %></h4>
+            <h4 class="media-heading"><%= link_to store.name, parlor_path(store.id) %></h4>
             <p><%= "#{store.zipcode_jp} #{store.adress}" %></p>
             <h3>crowded situation</h3>
             <div class="chart-container">

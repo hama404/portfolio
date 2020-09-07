@@ -1,5 +1,15 @@
 module ParlorsHelper
   #  parlor/index parlor_list
+  #  parlor/show single_parlor
+  def news(store)
+    if store.infos.first
+      news = store.infos.first.notice
+      news.split("\n")
+    else
+      ["nothig"]
+    end
+  end
+
   def data_set(store)
     labels = []
     data = []
@@ -31,24 +41,6 @@ module ParlorsHelper
 
   def adress_count(area)
     Adress.where(prefecture_code: area[:prefcode_min]..area[:prefcode_max]).count
-  end
-
-  #  parlor/show single_parlor
-  def name(store)
-    if store.name
-      store.name
-    else
-      store.parlor.name
-    end
-  end
-
-  def news(store)
-    if store.infos.first
-      news = store.infos.first.notice
-      news.split("\n")
-    else
-      ["nothig"]
-    end
   end
 
   #  JpPrefecture

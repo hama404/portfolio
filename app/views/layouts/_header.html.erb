@@ -1,41 +1,46 @@
 <!-- HEADER -->
-<div class="header clearfix">
-  <nav class="navbar navbar-main navbar-default" role="navigation">
+<div class="header clearfix" role="header">
+  <nav class="navbar navbar-main navbar-default">
     <div class="container">
-      <div class="row">
-        <div class="navbar-header">
-          <%= link_to 'portfolio', root_path, class: "navbar-brand" %>
-        </div>
-        <div class="collapse navbar-collapse navbar-ex1-collapse">
-          <ul class="nav navbar-nav navbar-right">
-            <li class="dropdown searchBox">
-              <a href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-search"></i></a>
-              <ul class="dropdown-menu dropdown-menu-right">
-                <form  id="form01" action="product-grid-left-sidebar.html" method="post">
-                  <li>
-                    <span class="input-group">
-                      <input type="text" name="searchWord" class="form-control" placeholder="Search…" aria-describedby="basic-addon2">
-                      <span onclick="FormSubmit();" class="input-group-addon addPointer" id="basic-addon2">検索</span>
-                    </span>
-                  </li>
-                </form>
-              </ul>
-            </li>
-            <li class="dropdown">
-              <a href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-bars"></i></a>
-              <ul class="dropdown-menu dropdown-menu-right">
-                <% if user_signed_in? %>
-                  <li>Logged in as <strong><%= current_user.email %></strong>.</li>
-                  <li><%= link_to 'Edit', edit_user_registration_path(current_user) %></li>
-                  <li><%= link_to 'Logout', destroy_user_session_path, method: :delete %></li>
-                <% else %>
-                  <li><%= link_to 'Signup', new_user_registration_path, class: "dropdown-item" %></li>
-                  <li><%= link_to 'Login', new_user_session_path, class: "dropdown-item" %></li>
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbarEexample">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <%= link_to 'portfolio', root_path, class: "navbar-brand" %>
+      </div>
+      
+      <div class="collapse navbar-collapse" id="navbarEexample">
+        <ul class="nav navbar-nav navbar-right">
+          <li class="dropdown search">
+            <a href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-search"></i></a>
+            <ul class="dropdown-menu">
+              <li>
+                <%= form_tag root_path, method: "get" do %>
+                  <div class="field">
+                    <%= search_field_tag :q, '', class: "form-control", placeholder: "word...", id: "search-field" %>
+                    <%= submit_tag "Search", class: "form-control", id: "submit-field" %>
+                  </div>
                 <% end %>
-              </ul>
-            </li>
-          </ul>
-        </div>
+              </li>
+            </ul>
+          </li>
+          <li class="dropdown bars">
+            <a href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-bars"></i></a>
+            <ul class="dropdown-menu">
+              <% if user_signed_in? %>
+                <li><p>Logged in as <strong><%= current_user.email %></strong>.</p></li>
+                <li><%= link_to 'Edit', edit_user_registration_path(current_user) %></li>
+                <li><%= link_to 'Logout', destroy_user_session_path, method: :delete %></li>
+              <% else %>
+                <li><%= link_to 'Signup', new_user_registration_path, class: "dropdown-item" %></li>
+                <li><%= link_to 'Login', new_user_session_path, class: "dropdown-item" %></li>
+              <% end %>
+            </ul>
+          </li>
+        </ul>
       </div>
     </div>
   </nav>

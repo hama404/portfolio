@@ -108,6 +108,7 @@ parlor.save!
 parlor.assets.create!
 
 adress = parlor.adresses.new(
+  name: 'BUY ME STAND',
   address1: '東1-31-19',
   address2: 'マンション並木橋302',
   city: '渋谷区',

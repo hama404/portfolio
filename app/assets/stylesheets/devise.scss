@@ -1,0 +1,31 @@
+/*================= devise ==================*/
+.notice {
+  padding: 0px 15px;
+  margin-bottom: 20px;
+  border: 1px solid transparent;
+  border-radius: 0px;
+  color: #3c763d;
+  background-color: #dff0d8;
+  border-color: #d6e9c6;
+}
+.alert {
+  padding: 0px 15px;
+  margin-bottom: 20px;
+  border: 1px solid transparent;
+  border-radius: 0px;
+  color: #a94442;
+  background-color: #f2dede;
+  border-color: #ebccd1;
+}
+.devise {
+  h2{
+    text-align: center;
+  }
+  .test-user {
+    text-align: right;
+    .btn-primary {
+      color: #fff;
+      background-color: #47bac1;
+      border-color: #47bac1;    }
+  }
+}

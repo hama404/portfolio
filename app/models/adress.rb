@@ -5,8 +5,16 @@ class Adress < ApplicationRecord
   has_many :assets, as: :assetable
   has_many :infos, class_name: :Infomation, as: :infoable
   has_many :business_hours
+  validates :name, presence: true
   jp_prefecture :prefecture_code, method_name: :pref
 
+  ## method
+  def self.search(q)
+    return Adress.all unless q.present?
+    Adress.where(['name LIKE ?', "%#{q}%"])
+  end
+
+  ## detail
   def zipcode_jp
     if country_code == 81
       "〒" + zipcode.to_s.insert(3, "-")

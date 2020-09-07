@@ -1,12 +1,4 @@
-<% provide(:title, @parlor.name) %>
+<% provide(:title, @title) %>
 
-<!-- LIGHT SECTION -->
-<%= render 'lightsection', title: @parlor.name %>
-
-<!-- MAIN CONTENT SECTION -->
-<section class="mainContent clearfix">
-  <div class="container">
-    <%= render 'singleproduct', store: @parlor %>
-    <%= render 'productscontent' %>
-  </div>
-</section>
+<%= render 'singleproduct', store: @parlor %>
+<%= render 'productscontent' %>
