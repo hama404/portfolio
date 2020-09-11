@@ -6,6 +6,7 @@
 
 # Add ignore file
 /public/system/assets
+/public/assets
 /app/assets/stylesheets/sample/
 /app/assets/javascripts/sample/
 /app/views/sample/
