@@ -1,16 +1,42 @@
 module ParlorsHelper
   #  parlor/index parlor_list
   #  parlor/show single_parlor
-  def news(store)
-    if store.infos.first
-      news = store.infos.first.notice
-      news.split("\n")
-    else
-      ["nothig"]
+  def detail(store, key: nil)
+    detail = {}
+
+    if store.prefecture_code.present? && store.zipcode_jp.present?
+      display = "#{store.zipcode_jp} #{store.adress}"
+      return display if key == "adress"
+      detail[:ADRESS] = { tag: "p", body: [display] }
     end
+    return if key == "adress"
+
+    if store.telephone.present?
+      return store.telephone if key == "telephone"
+      detail[:TEL] = { tag: "p", body: [store.telephone] }
+    end
+    return store.telephone if key == "telephone"
+
+    if store.parlor.url.present?
+      return store.parlor.url if key == "url"
+      detail[:HP] = { tag: "a", body: [store.parlor.url] }
+    end
+    return store.parlor.url if key == "url"
+
+    if store.parlor.insta.present?
+      return store.parlor.insta if key == "insta"
+      detail[:insta] = { tag: "a", body: [store.parlor.insta] }
+    end
+    return store.parlor.insta if key == "insta"
+
+    detail["営業時間、定休日、LO"] = { tag: "div", body: [] }
+    detail["お知らせ"] = { tag: "div", body: store.news }
+
+    detail
   end
 
   def data_set(store)
+    return { labels: 0, data: 0 } if store.business_hours.blank?
     labels = []
     data = []
     wday = Time.zone.now.wday

@@ -16,8 +16,6 @@
       #submit-field {
         width: 20%;
         border-radius: 0px 4px 4px 0px;
-        background: #47bac1;
-        color: #fff;
       }
     }
   }
@@ -38,7 +36,15 @@
       border: 0;
     }
   }
- }
+}
+
+.pageHeader ol.breadcrumb li form {
+  display: inline-block;
+  input {
+    border: none;
+    background: transparent;
+  }
+}
 
 /*================= 2. HOME ==================*/
 .header {

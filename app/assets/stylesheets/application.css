@@ -17,7 +17,8 @@
  *= require plugins/owl-carousel/owl.carousel
  *= require font-awesome
  *= require css/style
- *= require css/colors/default
+ *= require css/color
+ *= require sample/colors/default
  *= require header
  *= require devise
  *= require parlors

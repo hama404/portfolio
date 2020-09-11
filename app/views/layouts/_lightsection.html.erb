@@ -12,9 +12,13 @@
             <%= link_to 'Home', root_path %>
           </li>
           <li>
-            <%= link_to 'Add parlor', root_path %>
+            <%= link_to 'Add parlor', "", "data-toggle": "modal", "data-target": "#addparlorModal" %>
           </li>
           <li><%= title %></li>
+          <% if id %>
+            <li><%= link_to 'edit', edit_parlor_path(id) %></li>
+            <li><%= button_to 'destory', parlor_path(id), method: :delete %></li>
+          <% end %>
         </ol>
       </div>
     </div>

@@ -1,0 +1,35 @@
+<div class="modal fade" id="addparlorModal" tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span>×</span></button>
+        <h4 class="modal-title">Add Parlor</h4>
+      </div>
+      <div class="modal-body">
+        <%= form_for(@parlor_new, url: parlors_path, method: :post) do |f| %>
+
+          <div class="field form-group">
+            <%= f.label :name %>
+            <%= f.text_field :name, class: "form-control" %>
+          </div>
+          <div class="field form-group">
+            <%= f.label :url %>
+            <%= f.url_field :url, class: "form-control" %>
+          </div>
+          <div class="field form-group">
+            <%= f.label :insta %>
+            <%= f.text_field :insta, class: "form-control" %>
+          </div>
+          <div class="actions form-group">
+            <%= f.submit "Create", class: "btn btn-default" %>
+          </div>
+
+        <% end %>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">close</button>
+        <%= link_to 'detail create', new_parlor_path, class: "btn btn-base" %>
+      </div>
+    </div>
+  </div>
+</div>

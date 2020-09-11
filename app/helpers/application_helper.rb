@@ -10,21 +10,21 @@ module ApplicationHelper
   end
 
   def save_image(src, name)
-    dirName = "app/assets/images/parlors/"
+    dir_name = "app/assets/images/parlors/"
 
     # ready filepath
     file = File.basename(src).split("?").first
-    dir = name.downcase.gsub(" ","_")
-    dirPath = dirName + dir + "/"
-    filePath = dirPath + file
+    dir = name.downcase.gsub(" ", "_")
+    dir_path = dir_name + dir + "/"
+    file_path = dir_path + file
 
     # create folder if not exist
-    FileUtils.mkdir_p(dirPath) unless FileTest.exist?(dirPath)
+    FileUtils.mkdir_p(dir_path) unless FileTest.exist?(dir_path)
 
     # write image adata
     open(src) do |image|
-      File.open(filePath, "wb") do |file|
-        file.puts image.read
+      File.open(file_path, "wb") do |f|
+        f.puts image.read
       end
     end
   end

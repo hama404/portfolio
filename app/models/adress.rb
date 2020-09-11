@@ -10,21 +10,28 @@ class Adress < ApplicationRecord
 
   ## method
   def self.search(q)
-    return Adress.all unless q.present?
+    return Adress.all if q.blank?
     Adress.where(['name LIKE ?', "%#{q}%"])
   end
 
   ## detail
-  def zipcode_jp
-    if country_code == 81
-      "〒" + zipcode.to_s.insert(3, "-")
-    else
-      nil
-    end
+  def adress
+    return unless state.present? && city.present? && address1.present? && address2.present?
+    state + city + address1 + address2
   end
 
-  def adress
-    state + city + address1 + address2
+  def zipcode_jp
+    return unless (zipcode.present? && country_code.present?) && (country_code == 81)
+    "〒" + zipcode.to_s.insert(3, "-")
+  end
+
+  def news
+    if infos.first
+      news = infos.first.notice
+      news.split("\n")
+    else
+      ["nothig"]
+    end
   end
 
   def country

@@ -24,13 +24,18 @@
   5.3 CART PAGE HEADER
 ===================== */
 
-img {
-  max-width: 100%;
-}
-.mainContent {
-  border-top: solid 1px #ccc;
-  .container {
-    position: relative;
+$base_color: #47bac1;
+
+.btn-base {
+  & {
+    color: #fff;
+    background-color: $base_color;
+    border-color: $base_color;
+  }
+  &:hover {
+    color: #fff;
+    background-color: $base_color;
+    border-color: #ccc;
   }
 }
 
@@ -84,6 +89,16 @@ h5 {
   font-weight: 700;
   margin-bottom: 25px;
 }
+img {
+  max-width: 100%;
+}
+.mainContent {
+  border-top: solid 1px #ccc;
+  .container {
+    position: relative;
+  }
+}
+
 
 /*=== 1.COMMON ===*/
 .container {

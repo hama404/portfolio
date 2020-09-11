@@ -1,21 +1,25 @@
-<div class="col-md-3 col-sm-4 col-xs-12 sideBar">
-  <div class="panel panel-default filterNormal">
-    <div class="panel-heading">エリア</div>
-    <div class="panel-body">
-      <div class="collapse navbar-collapse navbar-ex1-collapse navbar-side-collapse">
-        <ul class="nav navbar-nav side-nav">
-          <% rigions.each do |key, value| %>
-            <li>
-              <a href="javascript:;" data-toggle="collapse" data-target="#<%= key %>"><%= value[:name] %><i class="fa fa-plus"></i></a>
-              <ul id="<%= key %>" class="collapse collapseItem">
-                <% value[:prefcode_min].upto value[:prefcode_max] do |num| %>
-                  <li><a href="#"><i class="fa fa-caret-right" aria-hidden="true"></i><%= pref_name(num) %> <span>(<%= pref_count(num) %>)</span></a></li>
+<div class="panel panel-default filterNormal">
+  <div class="panel-heading">
+    <h5 class="panel-title">エリア</h5>
+  </div>
+  <div class="panel-body collapse navbar-side-collapse">
+    <ul class="sidebar-list">
+      <% rigions.each do |key, value| %>
+        <li class="sidebar-item">
+          <a href="#<%= key %>" data-toggle="collapse">
+            <%= value[:name] %><i class="fa fa-plus"></i>
+          </a>
+          <ul id="<%= key %>" class="collapse sidebar-collapse-list">
+            <% value[:prefcode_min].upto value[:prefcode_max] do |num| %>
+              <li class="sidebar-collapse-item">
+                <%= link_to root_path(area: { num: num, name: pref_name(num) }) do %>
+                  <i class="fa fa-caret-right" aria-hidden="true"></i><%= pref_name(num) %><span>(<%= pref_count(num) %>)</span></a>
                 <% end %>
-              </ul>
-            </li>
-          <% end %>
-        </ul>
-      </div>
-    </div>
+              </li>
+            <% end %>
+          </ul>
+        </li>
+      <% end %>
+    </ul>
   </div>
 </div>

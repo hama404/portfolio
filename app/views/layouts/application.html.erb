@@ -7,19 +7,16 @@
   <body>
     <%= render 'layouts/header' %>
     <div class="main-wrapper">
-      <% if notice %>
-        <p class="notice alert-success"><%= notice %></p>
-      <% elsif alert %>
-        <p class="alert alert-danger"><%= alert %></p>
-      <% end %>
+      <%= render 'layouts/messages' %>
       <!-- LIGHT SECTION -->
-      <%= render 'layouts/lightsection', title: @title if @title %>
+      <%= render 'layouts/lightsection', title: @title, id: (@parlor.id if @parlor) if @title %>
       <!-- MAIN CONTENT SECTION -->
       <section class="mainContent clearfix">
         <div class="container">
           <%= yield %>
         </div>
       </section>
+      <%= render 'layouts/add_parlor_modal' if @title %>
     </div>
   </body>
 </html>
