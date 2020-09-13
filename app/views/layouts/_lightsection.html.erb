@@ -1,23 +1,21 @@
 <section class="lightSection clearfix pageHeader">
   <div class="container">
     <div class="row">
-      <div class="col-xs-6">
-        <div class="page-title">
-          <h2><%= title %></h2>
-        </div>
+      <div class="col-xs-12 col-sm-6 page-title">
+        <h2><%= title %></h2>
       </div>
-      <div class="col-xs-6">
-        <ol class="breadcrumb pull-right">
+      <div class="col-xs-12 col-sm-6 page-nav">
+        <ol class="breadcrumb">
           <li>
             <%= link_to 'Home', root_path %>
           </li>
           <li>
             <%= link_to 'Add parlor', "", "data-toggle": "modal", "data-target": "#addparlorModal" %>
           </li>
-          <li><%= title %></li>
+          <li class="active"><p><%= title %></p></li>
           <% if id %>
-            <li><%= link_to 'edit', edit_parlor_path(id) %></li>
-            <li><%= button_to 'destory', parlor_path(id), method: :delete %></li>
+            <li class="active"><%= link_to 'edit', edit_parlor_path(id) %></li>
+            <li class="active"><%= button_to 'destory', parlor_path(id), method: :delete %></li>
           <% end %>
         </ol>
       </div>

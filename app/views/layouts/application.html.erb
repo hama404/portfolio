@@ -6,7 +6,7 @@
   </head>
   <body>
     <%= render 'layouts/header' %>
-    <div class="main-wrapper">
+    <div class="main-wrapper padding-top">
       <%= render 'layouts/messages' %>
       <!-- LIGHT SECTION -->
       <%= render 'layouts/lightsection', title: @title, id: (@parlor.id if @parlor) if @title %>
