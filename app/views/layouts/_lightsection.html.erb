@@ -15,7 +15,8 @@
           <li class="active"><p><%= title %></p></li>
           <% if id %>
             <li class="active"><%= link_to 'edit', edit_parlor_path(id) %></li>
-            <li class="active"><%= button_to 'destory', parlor_path(id), method: :delete %></li>
+            <li class="active"><%= link_to 'destroy', parlor_path(id), method: :delete, data: { confirm: 'can i delete it?' } %>
+</li>
           <% end %>
         </ol>
       </div>

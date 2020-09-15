@@ -38,18 +38,18 @@ class ParlorsController < ApplicationController
       adress_new.name = parlor_params[:name]
       if adress_new.save
         adress_new.assets.create
-        flash[:notice] = "Plese edit parlor detail."
+        flash[:success] = "Plese edit parlor detail."
         redirect_to parlor_url(adress_new.id)
       else
         @stores = Adress.all
         @title = "parlor list"
-        flash.now[:alert] = "Could not save parlor adress"
+        flash.now[:danger] = "Could not save parlor adress"
         render :index
       end
     else
       @stores = Adress.all
       @title = "parlor list"
-      flash.now[:alert] = "Could not save parlor"
+      flash.now[:danger] = "Could not save parlor"
       render :index
     end
   end
@@ -59,11 +59,12 @@ class ParlorsController < ApplicationController
     @title = @parlor.name
     @parlor_new = Parlor.new
 
+    parlor_params[:address].merge(prefecture_code: 13)
     if @parlor.update(parlor_params[:address])
-      flash[:notice] = "User was successfully updated."
+      flash[:success] = "User was successfully updated."
       redirect_to parlor_path(@parlor.id)
     else
-      flash.now[:alert] = "Could not updete parlor adress"
+      flash.now[:danger] = "Could not updete parlor adress"
       render :edit
     end
   end
@@ -73,17 +74,16 @@ class ParlorsController < ApplicationController
     redirect_to root_url if @parlor.nil?
 
     @parlor.destroy
-    flash[:notice] = "parlor deleted"
+    flash[:success] = "parlor deleted"
     redirect_to root_url
   end
 
   private
 
   # Only allow a trusted parameter "white list" through.
-  def parlor_params
-    params.require(:parlor).permit(
-      :name, :url, :insta,
-      address: [:address1, :address2, :city, :state, :zipcode, :telephone]
-    )
-  end
+    def parlor_params
+      params.require(:parlor).permit(
+        :name, :url, :insta,
+        address: [:address1, :address2, :city, :state, :zipcode, :telephone])
+    end
 end

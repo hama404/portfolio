@@ -181,10 +181,10 @@ $base_color: #47bac1;
 /*=== 7.3 SINGLE PRODUCTS ===*/
 .singleProduct {
   .media {
+    width: 100%;
     margin-bottom: 70px;
     .productSlider {
       #carousel {
-        width: 70%;
         margin-bottom: 20px;
         .item img {
           width: 100%;
@@ -219,21 +219,33 @@ $base_color: #47bac1;
   }
   @media (max-width: 479px) {
     .media {
-      width: 100%;
+      .productSlider {
+        #carousel {
+          width: 100%;
+        }
+      }
     }
     .detail {
     }
   }
   @media (min-width: 480px) {
     .media {
-      width: 100%;
+      .productSlider {
+        #carousel {
+          width: 100%;
+        }
+      }
     }
     .detail {
     }
   }
   @media (min-width: 992px) {
     .media {
-      width: 100%;
+      .productSlider {
+        #carousel {
+          width: 70%;
+        }
+      }
     }
     .detail {
     }
