@@ -1,6 +1,6 @@
-class CreateAdresses < ActiveRecord::Migration[5.0]
+class CreateAddresses < ActiveRecord::Migration[5.0]
   def change
-    create_table :adresses do |t|
+    create_table :addresses do |t|
       t.integer :parlor_id, foreign_key: true
       t.string :name, null: false
       t.string :address1

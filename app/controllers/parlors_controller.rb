@@ -3,13 +3,13 @@ class ParlorsController < ApplicationController
 
   def index
     if !params[:q] && !params[:area]
-      @stores = Adress.all
+      @stores = Address.all
       @title = "parlor list"
     elsif !params[:q]
-      @stores = Adress.where(prefecture_code: params[:area][:num])
+      @stores = Address.where(prefecture_code: params[:area][:num])
       @title = "area : #{params[:area][:name]}"
     else
-      @stores = Adress.search(params[:q])
+      @stores = Address.search(params[:q])
       @title = "『#{params[:q]}』"
     end
     @parlor_new = Parlor.new
@@ -19,13 +19,13 @@ class ParlorsController < ApplicationController
   end
 
   def show
-    @parlor = Adress.find(params[:id])
+    @parlor = Address.find(params[:id])
     @title = @parlor.name
     @parlor_new = Parlor.new
   end
 
   def edit
-    @parlor = Adress.find(params[:id])
+    @parlor = Address.find(params[:id])
     @title = @parlor.name
     @parlor_new = Parlor.new
   end
@@ -34,20 +34,20 @@ class ParlorsController < ApplicationController
     @parlor_new = Parlor.new(parlor_params)
     @parlor_new.category_id = 1
     if @parlor_new.save
-      adress_new = @parlor_new.adresses.new(parlor_params[:address])
-      adress_new.name = parlor_params[:name]
-      if adress_new.save
-        adress_new.assets.create
+      address_new = @parlor_new.addresses.new(parlor_params[:address])
+      address_new.name = parlor_params[:name]
+      if address_new.save
+        address_new.assets.create
         flash[:success] = "Plese edit parlor detail."
-        redirect_to parlor_url(adress_new.id)
+        redirect_to parlor_url(address_new.id)
       else
-        @stores = Adress.all
+        @stores = Address.all
         @title = "parlor list"
-        flash.now[:danger] = "Could not save parlor adress"
+        flash.now[:danger] = "Could not save parlor address"
         render :index
       end
     else
-      @stores = Adress.all
+      @stores = Address.all
       @title = "parlor list"
       flash.now[:danger] = "Could not save parlor"
       render :index
@@ -55,7 +55,7 @@ class ParlorsController < ApplicationController
   end
 
   def update
-    @parlor = Adress.find(params[:id])
+    @parlor = Address.find(params[:id])
     @title = @parlor.name
     @parlor_new = Parlor.new
 
@@ -64,13 +64,13 @@ class ParlorsController < ApplicationController
       flash[:success] = "User was successfully updated."
       redirect_to parlor_path(@parlor.id)
     else
-      flash.now[:danger] = "Could not updete parlor adress"
+      flash.now[:danger] = "Could not updete parlor address"
       render :edit
     end
   end
 
   def destroy
-    @parlor = Adress.find(params[:id])
+    @parlor = Address.find(params[:id])
     redirect_to root_url if @parlor.nil?
 
     @parlor.destroy

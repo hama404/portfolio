@@ -1,4 +1,4 @@
-class Adress < ApplicationRecord
+class Address < ApplicationRecord
   include JpPrefecture
   include Countries
   belongs_to :parlor, dependent: :destroy
@@ -10,12 +10,12 @@ class Adress < ApplicationRecord
 
   ## method
   def self.search(q)
-    return Adress.all if q.blank?
-    Adress.where(['name LIKE ?', "%#{q}%"])
+    return Address.all if q.blank?
+    Address.where(['name LIKE ?', "%#{q}%"])
   end
 
   ## detail
-  def adress
+  def address
     return unless state.present? && city.present? && address1.present? && address2.present?
     state + city + address1 + address2
   end

@@ -12,7 +12,7 @@
 
 ActiveRecord::Schema.define(version: 2020_09_01_061736) do
 
-  create_table "adresses", id: :integer, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "addresses", id: :integer, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "parlor_id"
     t.string "name", null: false
     t.string "address1"
@@ -41,7 +41,7 @@ ActiveRecord::Schema.define(version: 2020_09_01_061736) do
   end
 
   create_table "business_hours", id: :integer, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.integer "adress_id"
+    t.integer "address_id"
     t.integer "wday"
     t.float "open"
     t.float "close"

@@ -2,10 +2,4 @@
   <% flash.each do |name, msg| -%>
     <%= content_tag :p, msg, class: name %>
   <% end -%>
-<% else %>
-  <% if notice %>
-    <p class="notice alert-success success"><%= notice %></p>
-  <% elsif alert %>
-    <p class="alert alert-danger danger"><%= alert %></p>
-  <% end %>
 <% end %>

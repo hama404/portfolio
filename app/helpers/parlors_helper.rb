@@ -5,9 +5,9 @@ module ParlorsHelper
     detail = {}
 
     if store.prefecture_code.present? && store.zipcode_jp.present?
-      display = "#{store.zipcode_jp} #{store.adress}"
-      return display if key == "adress"
-      detail[:ADRESS] = { tag: "p", body: [display] }
+      display = "#{store.zipcode_jp} #{store.address}"
+      return display if key == "address"
+      detail[:ADDRESS] = { tag: "p", body: [display] }
     end
     return if key == "adress"
 
@@ -62,11 +62,11 @@ module ParlorsHelper
   end
 
   def pref_count(prefcode)
-    Adress.where(prefecture_code: prefcode).count
+    Address.where(prefecture_code: prefcode).count
   end
 
   def adress_count(area)
-    Adress.where(prefecture_code: area[:prefcode_min]..area[:prefcode_max]).count
+    Address.where(prefecture_code: area[:prefcode_min]..area[:prefcode_max]).count
   end
 
   #  JpPrefecture
