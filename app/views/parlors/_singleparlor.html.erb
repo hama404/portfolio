@@ -54,7 +54,7 @@
         <h3>crowded situation</h3>
         <div class="chart-container">
           <canvas id="myChart<%= store.id %>" height="200" width="500"></canvas>
-          <% @chart_data = data_set(@parlor) %>
+          <% @chart_data = data_set(store) %>
           <script>
             var labels = <%= @chart_data[:labels] %>, data = <%= @chart_data[:data].to_json.html_safe %>, id = "myChart<%= store.id %>";
             draw_graph();

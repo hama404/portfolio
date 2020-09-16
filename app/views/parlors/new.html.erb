@@ -1,55 +1,6 @@
-<div class="row devise">
-  <div class="col-sm-6 col-sm-offset-3 col-md-4 col-md-offset-4">
-    <h2>NEW</h2>
-    <p class="clearfix"><%= link_to "Back to Home", root_path, class: "pull-right" %></p>
-    
-    <%= form_tag parlors_path do %>
+<div class="row new">
+  <h2>NEW</h2>
+  <p class="clearfix"><%= link_to "Back to home", parlors_path, class: "pull-right" %></p>
 
-      <div class="parlor">
-        <div class="field form-group">
-          <%= label_tag :name %>
-          <%= text_field_tag :name, "", name: "parlor[name]", class: "form-control" %>
-        </div>
-        <div class="field form-group">
-          <%= label_tag :url %>
-          <%= text_field_tag :url, "", name: "parlor[url]", class: "form-control" %>
-        </div>
-        <div class="field form-group">
-          <%= label_tag :insta %>
-          <%= text_field_tag :insta, "", name: "parlor[insta]", class: "form-control" %>
-        </div>
-      </div>
-
-      <div class="adress">
-        <div class="field form-group">
-          <%= label_tag :address1 %>
-          <%= text_field_tag :address1, "", name: "parlor[adress][address1]", class: "form-control" %>
-        </div>
-        <div class="field form-group">
-          <%= label_tag :address2 %>
-          <%= text_field_tag :address2, "", name: "parlor[adress][address2]", class: "form-control" %>
-        </div>
-        <div class="field form-group">
-          <%= label_tag :city %>
-          <%= text_field_tag :city, "", name: "parlor[adress][city]", class: "form-control" %>
-        </div>
-        <div class="field form-group">
-          <%= label_tag :state %>
-          <%= text_field_tag :state, "", name: "parlor[adress][state]", class: "form-control" %>
-        </div>
-        <div class="field form-group">
-          <%= label_tag :zipcode %>
-          <%= text_field_tag :zipcode, "", name: "parlor[adress][zipcode]", class: "form-control" %>
-        </div>
-        <div class="field form-group">
-          <%= label_tag :telephone %>
-          <%= text_field_tag :telephone, "", name: "parlor[adress][telephone]", class: "form-control" %>
-        </div>
-      </div>
-
-      <div class="actions form-group">
-        <%= submit_tag "Create", class: "btn btn-default" %>
-      </div>
-    <% end %>
-  </div>
+  <%= render 'parlors/formgroup' %>
 </div>

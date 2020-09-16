@@ -6,25 +6,7 @@
         <h4 class="modal-title">Add Parlor</h4>
       </div>
       <div class="modal-body">
-        <%= form_for(@parlor_new, url: parlors_path, method: :post) do |f| %>
-
-          <div class="field form-group">
-            <%= f.label :name %>
-            <%= f.text_field :name, class: "form-control" %>
-          </div>
-          <div class="field form-group">
-            <%= f.label :url %>
-            <%= f.url_field :url, class: "form-control" %>
-          </div>
-          <div class="field form-group">
-            <%= f.label :insta %>
-            <%= f.text_field :insta, class: "form-control" %>
-          </div>
-          <div class="actions form-group">
-            <%= f.submit "Create", class: "btn btn-default" %>
-          </div>
-
-        <% end %>
+        <%= render 'parlors/form', parlor: @parlor_new %>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">close</button>

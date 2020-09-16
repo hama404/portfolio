@@ -9,7 +9,7 @@ module ParlorsHelper
       return display if key == "address"
       detail[:ADDRESS] = { tag: "p", body: [display] }
     end
-    return if key == "adress"
+    return if key == "address"
 
     if store.telephone.present?
       return store.telephone if key == "telephone"

@@ -12,6 +12,30 @@
 
 $base_color: #47bac1;
 
+.new, .edit {
+  .nav-pills {
+    a {
+      border: solid 1px #ececec;
+    }
+    li.active > a {
+      color: #fff;
+      background-color: $base_color;
+    }
+  }
+
+  @media (max-width: 479px) {
+    h2 {
+      text-align: center;
+    }
+  }
+  @media (min-width: 480px) {
+  }
+  @media (min-width: 768px) {
+  }
+  @media (min-width: 992px) {
+  }
+}
+
 /*=== 6. SIDEBARS ===*/
 .sideBar .panel {
   border-radius: 0;

@@ -9,7 +9,7 @@
     <div class="main-wrapper padding-top">
       <%= render 'layouts/messages' %>
       <!-- LIGHT SECTION -->
-      <%= render 'layouts/lightsection', title: @title, id: (@parlor.id if @parlor) if @title %>
+      <%= render 'layouts/lightsection', title: @title, store: (@store if @store) if @title %>
       <!-- MAIN CONTENT SECTION -->
       <section class="mainContent clearfix">
         <div class="container">

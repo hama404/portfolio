@@ -13,10 +13,9 @@
             <%= link_to 'Add parlor', "", "data-toggle": "modal", "data-target": "#addparlorModal" %>
           </li>
           <li class="active"><p><%= title %></p></li>
-          <% if id %>
-            <li class="active"><%= link_to 'edit', edit_parlor_path(id) %></li>
-            <li class="active"><%= link_to 'destroy', parlor_path(id), method: :delete, data: { confirm: 'can i delete it?' } %>
-</li>
+          <% if store %>
+            <li class="active"><%= link_to 'edit', edit_parlor_path(store.id) %></li>
+            <li class="active"><%= link_to 'destroy', parlor_address_path(store.parlor.id, store.id), method: :delete, data: { confirm: 'can i delete it?' } %></li>
           <% end %>
         </ol>
       </div>

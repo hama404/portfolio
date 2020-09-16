@@ -1,0 +1,27 @@
+<div class="col-sm-4 col-sm-offset-1 col-md-4 col-md-offset-1">
+  <ul class="nav nav-pills nav-stacked">
+    <li class="active">
+      <%= link_to "Parlor", "#parlorform", class: "", data: {toggle: "tab"} %>
+    </li>
+    <li>
+      <%= link_to "Adress", "#addressform", class: "", data: {toggle: "tab"} %>
+    </li>
+    <li>
+      <%= link_to "Assets", "#assetform", class: "", data: {toggle: "tab"} %>
+    </li>
+  </ul>
+</div>
+
+<div class="col-sm-6 col-md-5">
+  <div class="tab-content">
+    <div class="tab-pane fade in active" id="parlorform">
+      <%= render 'parlors/form', parlor: @parlor %>
+    </div>
+    <div class="tab-pane fade" id="addressform">
+      <%= render 'addresses/form', parlor: @parlor, address: @address %>
+    </div>
+    <div class="tab-pane fade" id="assetform">
+      <%#= render 'addresses/form', address: @store %>
+    </div>
+  </div>
+</div>
