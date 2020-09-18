@@ -26,8 +26,9 @@ class AssetsController < ApplicationController
   private
 
   # Only allow a trusted parameter "white list" through.
-    def asset_params
-      params.require(:asset).permit(
-        :photo)
-    end
+  def asset_params
+    params.require(:asset).permit(
+      :photo
+    )
+  end
 end

@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   root to: "parlors#index"
+  get 'home/index'
   devise_for :users
+
   resources :parlors do
     resources :addresses, only: [:create, :update, :destroy]
     resources :assets, only: [:create, :update, :destroy]

@@ -17,7 +17,7 @@ class ParlorsController < ApplicationController
 
   def new
     @parlor = Parlor.create(name: "default",
-                           category_id: 1)
+                            category_id: 1)
     @address = @parlor.addresses.create(name: "default")
     @address.assets.create
   end
@@ -73,8 +73,9 @@ class ParlorsController < ApplicationController
   private
 
   # Only allow a trusted parameter "white list" through.
-    def parlor_params
-      params.require(:parlor).permit(
-        :name, :url, :insta)
-    end
+  def parlor_params
+    params.require(:parlor).permit(
+      :name, :url, :insta
+    )
+  end
 end

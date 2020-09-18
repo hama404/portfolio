@@ -9,17 +9,19 @@ module ApplicationHelper
     end
   end
 
-  def save_image(src, name)
-    dir_name = "app/assets/images/parlors/"
+  def save_image(src, name: nil)
+    dir_path = "app/assets/images/"
+    if name
+      dir = name.downcase.gsub(" ", "_")
+      dir_path += dir + "/"
+
+      # create folder if not exist
+      FileUtils.mkdir_p(dir_path) unless FileTest.exist?(dir_path)
+    end
 
     # ready filepath
     file = File.basename(src).split("?").first
-    dir = name.downcase.gsub(" ", "_")
-    dir_path = dir_name + dir + "/"
     file_path = dir_path + file
-
-    # create folder if not exist
-    FileUtils.mkdir_p(dir_path) unless FileTest.exist?(dir_path)
 
     # write image adata
     open(src) do |image|

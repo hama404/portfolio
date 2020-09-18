@@ -19,6 +19,7 @@
  *= require css/style
  *= require css/color
  *= require header
+ *= require home
  *= require devise
  *= require parlors
  *= require_self

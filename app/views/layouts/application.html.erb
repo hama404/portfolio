@@ -11,7 +11,7 @@
       <!-- LIGHT SECTION -->
       <%= render 'layouts/lightsection', title: @title, store: (@store if @store) if @title %>
       <!-- MAIN CONTENT SECTION -->
-      <section class="mainContent clearfix">
+      <section class="mainContent <%= "homeContent" if @home %> clearfix">
         <div class="container">
           <%= yield %>
         </div>
