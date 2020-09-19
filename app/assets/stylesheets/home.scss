@@ -7,6 +7,7 @@ $base_color: #47bac1;
 .homeContent {
     background-image: image-url("180609000239wn3n_l.jpg");
     min-height: 400px;
-    background-size: cover;
+    background-size: contain;
     background-repeat: no-repeat;
+    background-color: #d0cbb5;
 }
