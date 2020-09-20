@@ -41,6 +41,7 @@ $base_color: #47bac1;
   border-radius: 0;
   border: none;
   .panel-heading {
+    display: block;
     border-radius: 0;
     border: none;
     padding: 20px 15px;
@@ -52,6 +53,7 @@ $base_color: #47bac1;
   .panel-body {
     border: 5px solid #f0f0f0;
     border-top: none;
+    overflow: hidden;
     li.sidebar-item {
       margin-bottom: 15px;
       & > a {
@@ -104,7 +106,8 @@ $base_color: #47bac1;
 }
 
 /*=== 7.2 PRODUCTS LIST ===*/
-.parlorList .media {
+.parlorList .listitem {
+  border-bottom: solid 1px #ececec;
   .media-left {
     position: relative;
     overflow: hidden;
@@ -173,7 +176,13 @@ $base_color: #47bac1;
       margin: 0 0 20px 0;
       img {
         width: 100%;
-        height: auto;
+        height: 100px;
+        object-fit: cover;
+      }
+    }
+    .media-body {
+      .chart-container {
+        display: none;
       }
     }
   }
