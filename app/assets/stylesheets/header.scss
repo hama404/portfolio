@@ -9,6 +9,9 @@
 /*================= 2. HOME ==================*/
 .padding-top {
   padding-top: 70px;
+  @media (max-width: 479px) {
+    padding-top: 0;
+  }
 }
 
 /*=== 2.1 HEADER ===*/
@@ -78,6 +81,11 @@
           right: 0px;
         }
       }
+    }
+  }
+  @media (max-width: 479px) {
+    .navbar-fixed-top {
+      position: relative;
     }
   }
 }
