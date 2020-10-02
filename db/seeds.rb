@@ -166,3 +166,528 @@ wdays.split.each do |wday|
     hourly_time: 22.0,
     percent: 10)
 end
+
+
+## 4/4 SEASONS COFFEE
+# Parlors, Adresses
+parlor = cat.parlors.new(
+  name: '4/4 SEASONS COFFEE',
+  url: 'http://allseasonscoffee.jp/',
+  insta: 'https://www.instagram.com/allseasonscoffee/')
+parlor.save!
+parlor.assets.create!
+
+address = parlor.addresses.new(
+  name: '4/4 SEASONS COFFEE',
+  address1: '新宿2-7-7',
+  city: '新宿区',
+  state: '東京都',
+  prefecture_code: 13,
+  zipcode: 1600022,
+  telephone: "03-5341-4273")
+address.parlor.stores += 1
+address.save!
+
+# Assets
+first = 'c3c3b192-315d-4185-bc83-6894085fca6b_m.jpg'
+dir = 'app/assets/images/parlors/all_seasons_coffee/'
+
+address.assets.create!(
+  photo: File.new(Rails.root.join(dir,first)))
+Dir.each_child dir do |file|
+  next if file == first
+  path = Rails.root.join(dir,file)
+  address.assets.create!(
+    photo: File.new(path))
+end
+
+# Infomations
+
+# BusinessHours, Crowdeds
+weekdays = "1 2 3 4 5"
+holidays = "0 6"
+
+weekdays.split.each do |wday|
+  bh_weekdays = address.business_hours.new(
+    wday: wday,
+    open: 8.5,
+    close: 20.0)
+  bh_weekdays.save!
+
+  bh_weekdays.crowdeds.create!(
+    hourly_time: 9.0,
+    percent: 10)
+  bh_weekdays.crowdeds.create!(
+    hourly_time: 10.0,
+    percent: 40)
+  bh_weekdays.crowdeds.create!(
+    hourly_time: 11.0,
+    percent: 60)
+  bh_weekdays.crowdeds.create!(
+    hourly_time: 12.0,
+    percent: 80)
+  bh_weekdays.crowdeds.create!(
+    hourly_time: 13.0,
+    percent: 30)
+  bh_weekdays.crowdeds.create!(
+    hourly_time: 14.0,
+    percent: 10)
+  bh_weekdays.crowdeds.create!(
+    hourly_time: 19.0,
+    percent: 30)
+  bh_weekdays.crowdeds.create!(
+    hourly_time: 20.0,
+    percent: 20)
+end
+
+holidays.split.each do |wday|
+  bh_holidays = address.business_hours.new(
+    wday: wday,
+    open: 10.0,
+    close: 19.0)
+  bh_holidays.save!
+
+  bh_holidays.crowdeds.create!(
+    hourly_time: 10.0,
+    percent: 20)
+  bh_holidays.crowdeds.create!(
+    hourly_time: 11.0,
+    percent: 60)
+  bh_holidays.crowdeds.create!(
+    hourly_time: 12.0,
+    percent: 80)
+  bh_holidays.crowdeds.create!(
+    hourly_time: 13.0,
+    percent: 30)
+  bh_holidays.crowdeds.create!(
+    hourly_time: 14.0,
+    percent: 10)
+  bh_holidays.crowdeds.create!(
+    hourly_time: 19.0,
+    percent: 20)
+end
+
+
+## PEANUTS Cafe
+# Parlors, Adresses
+parlor = cat.parlors.new(
+  name: 'PEANUTS Cafe',
+  url: 'http://www.peanutscafe.jp/',
+  insta: 'https://www.instagram.com/peanutscafe_tokyo/')
+parlor.save!
+parlor.assets.create!
+
+address = parlor.addresses.new(
+  name: 'PEANUTS Cafe',
+  address1: '青葉台2-16-7',
+  city: '目黒区',
+  state: '東京都',
+  prefecture_code: 13,
+  zipcode: 1530042,
+  telephone: "03-6452-5882")
+address.parlor.stores += 1
+address.save!
+
+# Assets
+first = '494f8124-8516-41c2-b139-6252c8aa0dd0_m.jpg'
+dir = 'app/assets/images/parlors/peanuts_cafe/'
+
+address.assets.create!(
+  photo: File.new(Rails.root.join(dir,first)))
+Dir.each_child dir do |file|
+  next if file == first
+  path = Rails.root.join(dir,file)
+  address.assets.create!(
+    photo: File.new(path))
+end
+
+# Infomations
+
+# BusinessHours, Crowdeds
+wdays = "0 1 2 3 4 5 6"
+
+wdays.split.each do |wday|
+  bh_wdays = address.business_hours.new(
+    wday: wday,
+    open: 10.0,
+    close: 22.0)
+  bh_wdays.save!
+
+  bh_wdays.crowdeds.create!(
+    hourly_time: 10.0,
+    percent: 20)
+  bh_wdays.crowdeds.create!(
+    hourly_time: 11.0,
+    percent: 40)
+  bh_wdays.crowdeds.create!(
+    hourly_time: 12.0,
+    percent: 90)
+  bh_wdays.crowdeds.create!(
+    hourly_time: 13.0,
+    percent: 40)
+  bh_wdays.crowdeds.create!(
+    hourly_time: 14.0,
+    percent: 30)
+  bh_wdays.crowdeds.create!(
+    hourly_time: 15.0,
+    percent: 30)
+  bh_wdays.crowdeds.create!(
+    hourly_time: 16.0,
+    percent: 10)
+  bh_wdays.crowdeds.create!(
+    hourly_time: 18.0,
+    percent: 20)
+  bh_wdays.crowdeds.create!(
+    hourly_time: 19.0,
+    percent: 40)
+  bh_wdays.crowdeds.create!(
+    hourly_time: 20.0,
+    percent: 80)
+  bh_wdays.crowdeds.create!(
+    hourly_time: 21.0,
+    percent: 30)
+  bh_wdays.crowdeds.create!(
+    hourly_time: 22.0,
+    percent: 10)
+end
+
+
+## Satén japanese tea
+# Parlors, Adresses
+parlor = cat.parlors.new(
+  name: 'Satén japanese tea',
+  url: 'https://saten.jp/',
+  insta: 'https://www.instagram.com/saten_jp/?hl=ja')
+parlor.save!
+parlor.assets.create!
+
+address = parlor.addresses.new(
+  name: 'Satén japanese tea',
+  address1: '松庵3-25-9',
+  address2: 'ロアジール松庵',
+  city: '杉並区',
+  state: '東京都',
+  prefecture_code: 13,
+  zipcode: 1670054,
+  telephone: "03-6754-8866")
+address.parlor.stores += 1
+address.save!
+
+# Assets
+first = 'c52708cd-d295-49ba-83db-8137b87e8a0d_m.jpg'
+dir = 'app/assets/images/parlors/saten/'
+
+address.assets.create!(
+  photo: File.new(Rails.root.join(dir,first)))
+Dir.each_child dir do |file|
+  next if file == first
+  path = Rails.root.join(dir,file)
+  address.assets.create!(
+    photo: File.new(path))
+end
+
+# Infomations
+
+# BusinessHours, Crowdeds
+wdays = "0 2 3 4 6"
+fri = "5"
+
+wdays.split.each do |wday|
+  bh_wdays = address.business_hours.new(
+    wday: wday,
+    open: 10.0,
+    close: 21.0)
+  bh_wdays.save!
+
+  bh_wdays.crowdeds.create!(
+    hourly_time: 10.0,
+    percent: 20)
+  bh_wdays.crowdeds.create!(
+    hourly_time: 11.0,
+    percent: 30)
+  bh_wdays.crowdeds.create!(
+    hourly_time: 12.0,
+    percent: 70)
+  bh_wdays.crowdeds.create!(
+    hourly_time: 13.0,
+    percent: 80)
+  bh_wdays.crowdeds.create!(
+    hourly_time: 14.0,
+    percent: 70)
+  bh_wdays.crowdeds.create!(
+    hourly_time: 19.0,
+    percent: 50)
+  bh_wdays.crowdeds.create!(
+    hourly_time: 20.0,
+    percent: 40)
+  bh_wdays.crowdeds.create!(
+    hourly_time: 21.0,
+    percent: 30)
+end
+
+fri.split.each do |wday|
+  bh_fri = address.business_hours.new(
+    wday: wday,
+    open: 10.0,
+    close: 23.0)
+  bh_fri.save!
+
+  bh_fri.crowdeds.create!(
+    hourly_time: 10.0,
+    percent: 40)
+  bh_fri.crowdeds.create!(
+    hourly_time: 11.0,
+    percent: 50)
+  bh_fri.crowdeds.create!(
+    hourly_time: 12.0,
+    percent: 60)
+  bh_fri.crowdeds.create!(
+    hourly_time: 13.0,
+    percent: 70)
+  bh_fri.crowdeds.create!(
+    hourly_time: 14.0,
+    percent: 60)
+  bh_fri.crowdeds.create!(
+    hourly_time: 19.0,
+    percent: 20)
+  bh_fri.crowdeds.create!(
+    hourly_time: 20.0,
+    percent: 30)
+  bh_fri.crowdeds.create!(
+    hourly_time: 21.0,
+    percent: 40)
+  bh_fri.crowdeds.create!(
+    hourly_time: 22.0,
+    percent: 40)
+  bh_fri.crowdeds.create!(
+    hourly_time: 23.0,
+    percent: 40)
+end
+
+
+## はちくまカフェ
+# Parlors, Adresses
+parlor = cat.parlors.new(
+  name: 'はちくまカフェ',
+  insta: 'https://www.instagram.com/hachikumacafe/')
+parlor.save!
+parlor.assets.create!
+
+address = parlor.addresses.new(
+  name: 'はちくまカフェ',
+  address1: '東池袋3-11-3',
+  address2: 'ハッケンハセガワビル1階',
+  city: '豊島区',
+  state: '東京都',
+  prefecture_code: 13,
+  zipcode: 1700013,
+  telephone: "0359448924")
+address.parlor.stores += 1
+address.save!
+
+# Assets
+first = 'aef3b38e-526c-4c62-a840-1e3ebcc571ff_m.jpg'
+dir = 'app/assets/images/parlors/hachikuma/'
+
+address.assets.create!(
+  photo: File.new(Rails.root.join(dir,first)))
+Dir.each_child dir do |file|
+  next if file == first
+  path = Rails.root.join(dir,file)
+  address.assets.create!(
+    photo: File.new(path))
+end
+
+# Infomations
+
+# BusinessHours, Crowdeds
+weekdays = "1 2 3 4 5"
+holidays = "0 6"
+
+weekdays.split.each do |wday|
+  bh_weekdays = address.business_hours.new(
+    wday: wday,
+    open: 11.5,
+    close: 19.5)
+  bh_weekdays.save!
+
+  bh_weekdays.crowdeds.create!(
+    hourly_time: 12.0,
+    percent: 80)
+  bh_weekdays.crowdeds.create!(
+    hourly_time: 13.0,
+    percent: 70)
+  bh_weekdays.crowdeds.create!(
+    hourly_time: 14.0,
+    percent: 60)
+  bh_weekdays.crowdeds.create!(
+    hourly_time: 15.0,
+    percent: 70)
+  bh_weekdays.crowdeds.create!(
+    hourly_time: 16.0,
+    percent: 60)
+  bh_weekdays.crowdeds.create!(
+    hourly_time: 17.0,
+    percent: 50)
+  bh_weekdays.crowdeds.create!(
+    hourly_time: 18.0,
+    percent: 30)
+  bh_weekdays.crowdeds.create!(
+    hourly_time: 19.0,
+    percent: 10)
+end
+
+holidays.split.each do |wday|
+  bh_holidays = address.business_hours.new(
+    wday: wday,
+    open: 11.0,
+    close: 19.5)
+  bh_holidays.save!
+
+  bh_holidays.crowdeds.create!(
+    hourly_time: 11.0,
+    percent: 70)
+  bh_holidays.crowdeds.create!(
+    hourly_time: 12.0,
+    percent: 80)
+  bh_holidays.crowdeds.create!(
+    hourly_time: 13.0,
+    percent: 70)
+  bh_holidays.crowdeds.create!(
+    hourly_time: 14.0,
+    percent: 60)
+  bh_holidays.crowdeds.create!(
+    hourly_time: 15.0,
+    percent: 70)
+  bh_holidays.crowdeds.create!(
+    hourly_time: 16.0,
+    percent: 60)
+  bh_holidays.crowdeds.create!(
+    hourly_time: 17.0,
+    percent: 50)
+  bh_holidays.crowdeds.create!(
+    hourly_time: 18.0,
+    percent: 20)
+  bh_holidays.crowdeds.create!(
+    hourly_time: 19.0,
+    percent: 10)
+end
+
+
+## DIXANS
+# Parlors, Adresses
+parlor = cat.parlors.new(
+  name: 'DIXANS',
+  url: 'http://www.dixans.jp/',
+  insta: 'https://www.instagram.com/dixans.jimbocho/?hl=ja')
+parlor.save!
+parlor.assets.create!
+
+address = parlor.addresses.new(
+  name: 'DIXANS JIMBOCHO',
+  address1: '神田神保町1-24',
+  address2: '1F・2階',
+  city: '千代田区',
+  state: '東京都',
+  prefecture_code: 13,
+  zipcode: 1010051,
+  telephone: "0352445618")
+address.parlor.stores += 1
+address.save!
+
+# Assets
+first = '5f218a39-0385-4bc7-a575-7dce3221fd3d_m.jpg'
+dir = 'app/assets/images/parlors/dixans/'
+
+address.assets.create!(
+  photo: File.new(Rails.root.join(dir,first)))
+Dir.each_child dir do |file|
+  next if file == first
+  path = Rails.root.join(dir,file)
+  address.assets.create!(
+    photo: File.new(path))
+end
+
+# Infomations
+
+# BusinessHours, Crowdeds
+weekdays = "1 2 3 4 5"
+holidays = "0 6"
+
+weekdays.split.each do |wday|
+  bh_weekdays = address.business_hours.new(
+    wday: wday,
+    open: 8.0,
+    close: 19.0)
+  bh_weekdays.save!
+
+  bh_weekdays.crowdeds.create!(
+    hourly_time: 8.0,
+    percent: 50)
+  bh_weekdays.crowdeds.create!(
+    hourly_time: 9.0,
+    percent: 60)
+  bh_weekdays.crowdeds.create!(
+    hourly_time: 10.0,
+    percent: 40)
+  bh_weekdays.crowdeds.create!(
+    hourly_time: 11.0,
+    percent: 40)
+  bh_weekdays.crowdeds.create!(
+    hourly_time: 12.0,
+    percent: 60)
+  bh_weekdays.crowdeds.create!(
+    hourly_time: 13.0,
+    percent: 70)
+  bh_weekdays.crowdeds.create!(
+    hourly_time: 14.0,
+    percent: 80)
+  bh_weekdays.crowdeds.create!(
+    hourly_time: 15.0,
+    percent: 70)
+  bh_weekdays.crowdeds.create!(
+    hourly_time: 16.0,
+    percent: 60)
+  bh_weekdays.crowdeds.create!(
+    hourly_time: 17.0,
+    percent: 40)
+  bh_weekdays.crowdeds.create!(
+    hourly_time: 18.0,
+    percent: 30)
+  bh_weekdays.crowdeds.create!(
+    hourly_time: 19.0,
+    percent: 20)
+end
+
+holidays.split.each do |wday|
+  bh_holidays = address.business_hours.new(
+    wday: wday,
+    open: 12.0,
+    close: 17.0)
+  bh_holidays.save!
+
+  bh_holidays.crowdeds.create!(
+    hourly_time: 12.0,
+    percent: 70)
+  bh_holidays.crowdeds.create!(
+    hourly_time: 13.0,
+    percent: 80)
+  bh_holidays.crowdeds.create!(
+    hourly_time: 14.0,
+    percent: 70)
+  bh_holidays.crowdeds.create!(
+    hourly_time: 15.0,
+    percent: 60)
+  bh_holidays.crowdeds.create!(
+    hourly_time: 16.0,
+    percent: 50)
+  bh_holidays.crowdeds.create!(
+    hourly_time: 17.0,
+    percent: 40)
+  bh_holidays.crowdeds.create!(
+    hourly_time: 18.0,
+    percent: 30)
+  bh_holidays.crowdeds.create!(
+    hourly_time: 19.0,
+    percent: 20)
+end

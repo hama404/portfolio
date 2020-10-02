@@ -10,7 +10,7 @@ module ApplicationHelper
   end
 
   def save_image(src, name: nil)
-    dir_path = "app/assets/images/"
+    dir_path = "app/assets/images/parlors/"
     if name
       dir = name.downcase.gsub(" ", "_")
       dir_path += dir + "/"
