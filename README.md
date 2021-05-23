@@ -1,24 +1,24 @@
-# README
+# Congestion situation
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+この Web アプリではカフェの混雑状況を確認することができます。
 
-Things you may want to cover:
+## Description
 
-* Ruby version
+この Web アプリは Rails Tutorial を終えて最初に作成した **_Rails アプリケーション_** です。
+フロントエンドは bootstrap を使用してでデザインしています。
 
-* System dependencies
+## Gems
 
-* Configuration
+- bootstrap
 
-* Database creation
+- font-awesome-rails
 
-* Database initialization
+- jquery-rails
 
-* How to run the test suite
+- jquery-ui-rails
 
-* Services (job queues, cache servers, search engines, etc.)
+- chart-js-rails
 
-* Deployment instructions
+- devise
 
-* ...
+- jp_prefecture
